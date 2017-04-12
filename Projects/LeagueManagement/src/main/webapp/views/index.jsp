@@ -21,13 +21,10 @@
  
 <style type="text/css">
 
-body{
-//background-image:url("http://www.powerpointhintergrund.com/download/football-background-2458");
-
-}
 
 
-#bg {
+
+.bg {
   position: fixed; 
   top: 0; 
   left: 0; 
@@ -45,7 +42,7 @@ body{
 
 
 </head>
-<body background = "resources/home.jpg">
+<body id= "bg" background = "resources/home.jpg" >
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -65,7 +62,7 @@ body{
         <li><a href="#">Player</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       	<li><a id="profile" href="#" style="display: block"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+       	<li><a id="profile" href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
         <li><a id="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
@@ -123,12 +120,12 @@ body{
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="Login">
-                                <form role="form" class="form-horizontal">
+                                <form id="loginsubmit" role="form" class="form-horizontal">
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
                                         Email</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="email1" placeholder="Email or phonenumber" />
+                                        <input type="text" class="form-control" id="email1" placeholder="Email or phonenumber" />
                                     </div>
                                 </div>
                                 <div class="form-group">
