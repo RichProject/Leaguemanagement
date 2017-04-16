@@ -10,6 +10,9 @@ import Leaguemanagement.Entity.Account;
 
 public interface AccountDAO extends JpaRepository<Account, Long>  {
 
-	@Query("SELECT acc FROM Account acc WHERE acc.username = :username ")
-	Account login(@Param("username") String userName);
+//	@Query("SELECT acc FROM Account acc ")
+//	Account login();
+	
+	@Query("SELECT a FROM Account a WHERE LOWER(a.username) = LOWER(:username)")
+    public Account login(@Param("username") String username);
 }

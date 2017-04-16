@@ -25,12 +25,6 @@ function test() {
 
 //this is the id of the form
 $("#loginsubmit").submit(function(e) {
-	alert("success");
-	var username_password = {
-    	'username' : $("#email1").val(),
-    	'password' : $("#exampleInputPassword1").val()
-    };
-	alert(username_password.password);
 	$.ajax({
            type: "POST",
            url: "login",
@@ -42,10 +36,14 @@ $("#loginsubmit").submit(function(e) {
         	    }),
            success: function(data)
            {
-        	   console.log(data);
-               alert(data);
+               alert("success asdasdadasd");
+               alert(data.address);
            },
-			error : alert(" asdasdsad error")
+			error : function(data){
+				
+				alert("error!");
+				alert(data);
+			}
 			
 	
          });

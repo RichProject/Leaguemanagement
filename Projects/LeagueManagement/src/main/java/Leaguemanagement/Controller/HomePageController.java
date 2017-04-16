@@ -36,17 +36,10 @@ public class HomePageController {
 			return new ModelAndView("index");
 		}
 
-	@RequestMapping(value = "/getusername", method = RequestMethod.POST)
-	public @ResponseBody void update () {
-		
-		accountservice.testaccount();
-	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public @ResponseBody Account login( @RequestBody accountModal accountmodal) {
-		System.out.println("controller " + accountmodal.getPassword());
-		System.out.println("controller " + accountmodal.getUsername());
-		System.out.println("controller "+ accountmodal.getId());
+
 		return accountservice.login(accountmodal) ;
 		
 	}

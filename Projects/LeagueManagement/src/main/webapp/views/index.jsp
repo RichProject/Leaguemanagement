@@ -168,9 +168,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="email" placeholder="Email" />
+                                        Type</label>
+                                    <div class="col-md-3">
+                                                <select class="form-control">
+                                                    <option>Player</option>
+                                                    <option>Stadium owner</option>
+                                                    <option>Coach</option>
+                                                    <option>Other..</option>
+                                                </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
