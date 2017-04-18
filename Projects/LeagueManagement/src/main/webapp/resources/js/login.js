@@ -36,8 +36,12 @@ $("#loginsubmit").submit(function(e) {
         	    }),
            success: function(data)
            {
-               alert("success asdasdadasd");
-               alert(data.address);
+               alert("login success");
+               document.getElementById('loginsuccess').style.display = "block";
+             //  $("loginsuccess").setAttribute("display", "block");
+               //profile
+               document.getElementById('profile').text = data.username;
+               alert(data.username);
            },
 			error : function(data){
 				

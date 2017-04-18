@@ -62,7 +62,7 @@
         <li><a href="#">Player</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       	<li><a id="profile" href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+       	<li id="loginsuccess" style="display :none"><a id="profile" href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
         <li><a id="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
