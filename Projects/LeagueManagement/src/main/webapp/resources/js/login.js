@@ -1,7 +1,10 @@
 
 
 $("#login").click(function(){
-	$("#loginmodal").modal()
+	document.getElementById('errorMessage').style.display = "none";
+	$("#email1").text="";
+	$("#exampleInputPassword1").text="";
+	$("#loginmodal").modal();
 })
 
 
@@ -36,17 +39,14 @@ $("#loginsubmit").submit(function(e) {
         	    }),
            success: function(data)
            {
-               alert("login success");
                document.getElementById('loginsuccess').style.display = "block";
-             //  $("loginsuccess").setAttribute("display", "block");
-               //profile
-               document.getElementById('profile').text = data.username;
-               alert(data.username);
+               document.getElementById('profile').text = data.fullname;
+               $("#loginmodal").modal('toggle');
+               document.getElementById('successMessage').style.display = "block";
+               $('#successMessage').delay(2500).fadeOut('slow');
            },
 			error : function(data){
-				
-				alert("error!");
-				alert(data);
+				document.getElementById('errorMessage').style.display = "block";
 			}
 			
 	

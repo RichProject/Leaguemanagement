@@ -68,7 +68,15 @@
     </div>
   </div>
 </nav>
-  
+
+ <div class="bs-example">
+    <div id ="successMessage"class="container alert alert-success fade in " style="display :none;text-align: center;weight: 50%" >
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> Login successfully. Welcome to our services...!
+    </div>
+</div>
+
+
 <div class ="container abc">
 	<div class="text-center">
 	  	<h1>Our website - League Management</h1>
@@ -107,8 +115,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×</button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Login-Registration</h4>
+                    Login-Registration</h4> 
             </div>
+            
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
@@ -144,6 +153,10 @@
                                         <a href="javascript:;">Forgot your password?</a>
                                     </div>
                                 </div>
+                                <div id ="errorMessage" class="alert alert-danger fade in" style="display :none; margin-top :10px">
+								    <a href="#" class="close" data-dismiss="alert">&times;</a>
+								    <strong>Login failed !</strong> Username or password is incorrect. Try again...!
+								</div>
                                 </form>
                             </div>
                             <div class="tab-pane" id="Registration">
