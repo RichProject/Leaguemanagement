@@ -3,10 +3,20 @@ package Leaguemanagement.Modal;
 public class accountModal {
 	private long Id;
 	private String fullname;
-	public accountModal(long id, String fullname, String username, String password) {
+	private String phoneNumber;
+	private String username;
+	private String password;
+	
+	public accountModal() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public accountModal(long id, String fullname, String phoneNumber,
+			String username, String password) {
 		super();
 		Id = id;
 		this.fullname = fullname;
+		this.phoneNumber = phoneNumber;
 		this.username = username;
 		this.password = password;
 	}
@@ -16,8 +26,7 @@ public class accountModal {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-	private String username;
-	private String password;
+
 	public String getUsername() {
 		return username;
 	}
@@ -30,26 +39,19 @@ public class accountModal {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public accountModal(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
+
 	public long getId() {
 		return Id;
-	}
-	public accountModal(long id, String username, String password) {
-		super();
-		Id = id;
-		this.username = username;
-		this.password = password;
-	}
-	public accountModal() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	public void setId(long id) {
 		Id = id;
 	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
 	
 }

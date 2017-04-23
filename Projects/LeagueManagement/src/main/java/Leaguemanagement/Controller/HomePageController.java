@@ -43,4 +43,14 @@ public class HomePageController {
 		return accountservice.login(accountmodal) ;
 		
 	}
+	
+	@RequestMapping(value = "/registy", method = RequestMethod.POST)
+	public @ResponseBody Account registy( @RequestBody accountModal accountmodal) {
+
+		return accountservice.register(accountmodal) ;
+		
+	}
+	
+	
+	
 }

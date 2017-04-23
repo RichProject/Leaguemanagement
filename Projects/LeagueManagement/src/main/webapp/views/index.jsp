@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>League Management</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <spring:url value="/resources/css/login_popup.css" var="logincss"/>
@@ -160,58 +160,46 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="Registration">
-                                <form role="form" class="form-horizontal">
+                                <form id="registration-submit" role="form" class="form-horizontal">
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
-                                        Name</label>
+                                        Fullname</label>
                                     <div class="col-sm-10">
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <select class="form-control">
-                                                    <option>Mr.</option>
-                                                    <option>Ms.</option>
-                                                    <option>Mrs.</option>
-                                                </select>
-                                            </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" placeholder="Name" />
+                                                <input id="regis-fullname" type="text" class="form-control" placeholder="Fullname" />
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="col-sm-2 control-label">
-                                        Type</label>
-                                    <div class="col-md-3">
-                                                <select class="form-control">
-                                                    <option>Player</option>
-                                                    <option>Stadium owner</option>
-                                                    <option>Coach</option>
-                                                    <option>Other..</option>
-                                                </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile" class="col-sm-2 control-label">
                                         Mobile</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="mobile" placeholder="Mobile" />
+                                        <input type="number" class="form-control" id="regis-phoneNumber" placeholder="Mobile" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="col-sm-2 control-label">
                                         Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="password" placeholder="Password" />
+                                        <input type="password" class="form-control" id="regis-password" placeholder="Password" />
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="password" class="col-sm-2 control-label">
+                                        Confirm</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="regis-repassword" placeholder="re-enter password" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-2">
                                     </div>
                                     <div class="col-sm-10">
-                                        <button type="button" class="btn btn-primary btn-sm">
+                                        <button id="regis-btnsave" type="submit" class="btn btn-primary btn-sm">
                                             Save & Continue</button>
-                                        <button type="button" class="btn btn-default btn-sm">
+                                        <button id="regis-btncancel"type="button" class="btn btn-default btn-sm">
                                             Cancel</button>
                                     </div>
                                 </div>

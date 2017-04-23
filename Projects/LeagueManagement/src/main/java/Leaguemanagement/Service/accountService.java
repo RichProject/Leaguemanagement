@@ -18,7 +18,6 @@ public class accountService {
 	
 
 	public Account login(accountModal accountmodal){
-		long id = 3;
 		//Account account = accountDao.findOne(id);
 		Account account = accountDao.login(accountmodal.getUsername());
 		
@@ -37,5 +36,18 @@ public class accountService {
 				return null;
 			}
 		}
+	}
+	public Account register(accountModal accountmodal){
+		
+		long a=3;
+		System.out.println(accountmodal.getFullname());
+		Account account  = accountDao.findOne(a);
+		account.setFullname(accountmodal.getFullname());
+		account.setPassword(accountmodal.getPassword());
+		account.setPhoneNumber(accountmodal.getPhoneNumber());
+		System.out.println("asdads");
+		accountDao.save(account);
+		
+		return account;
 	}
 }

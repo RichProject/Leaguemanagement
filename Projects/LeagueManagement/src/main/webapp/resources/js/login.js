@@ -53,3 +53,32 @@ $("#loginsubmit").submit(function(e) {
          });
 
 });
+
+$("#registration-submit").submit(function(e) {
+	
+	$.ajax({
+           type: "POST",
+           url: "registy",
+           contentType : "application/json;charset=UTF-8",
+           dataType : "json",
+           data : JSON.stringify({
+        	    	'fullname' : $("#regis-fullname").val(),
+        	    	'phoneNumber' : $("#regis-phoneNumber").val(),
+        	    	'password' : $("#regis-password").val()
+        	    	
+        	    }),
+           success: function(data)
+           {
+        	  
+              alert("succes");
+              alert(data.fullname);
+           },
+			error : function(data){
+				 alert("erroraaaaaa");
+				 alert(data.fullname);
+			}
+			
+	
+         });
+
+});
