@@ -39,9 +39,8 @@ public class accountService {
 	}
 	public Account register(accountModal accountmodal){
 		
-		long a=3;
 		System.out.println(accountmodal.getFullname());
-		Account account  = accountDao.findOne(a);
+		Account account  = new Account();
 		account.setFullname(accountmodal.getFullname());
 		account.setPassword(accountmodal.getPassword());
 		account.setPhoneNumber(accountmodal.getPhoneNumber());

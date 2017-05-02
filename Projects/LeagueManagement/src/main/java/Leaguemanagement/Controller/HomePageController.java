@@ -15,9 +15,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
+
+
 import Leaguemanagement.Entity.Account;
+import Leaguemanagement.Entity.Account_BT2;
 import Leaguemanagement.Modal.accountModal;
+import Leaguemanagement.Modal.accountModal_BT2;
 import Leaguemanagement.Service.accountService;
+import Leaguemanagement.Service.accountService_BT2;
 
 
 
@@ -27,6 +33,10 @@ public class HomePageController {
 
 	@Autowired
 	private accountService accountservice;
+	
+	
+	@Autowired
+	private accountService_BT2 accountservicebt2;
 
 	static final Logger log = Logger.getLogger(HomePageController.class.getName());
 	
@@ -34,7 +44,7 @@ public class HomePageController {
 	public ModelAndView initForm(HttpServletRequest request) {
 		
 			return new ModelAndView("index");
-		}
+	}
 
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -48,6 +58,15 @@ public class HomePageController {
 	public @ResponseBody Account registy( @RequestBody accountModal accountmodal) {
 
 		return accountservice.register(accountmodal) ;
+		
+	}
+	
+
+	@RequestMapping(value = "/login_bt2", method = RequestMethod.POST)
+	public @ResponseBody accountModal_BT2 login( @RequestBody accountModal_BT2 accountModal_Bt2) {
+		System.out.println("bt2 ontroller");
+		
+		return accountservicebt2.login(accountModal_Bt2);
 		
 	}
 	
