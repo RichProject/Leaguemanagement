@@ -210,8 +210,6 @@
 	</div>
  <jsp:include page="footer.jsp"></jsp:include>
  <spring:url value="/resources/js/login.js" var="login" />
- <spring:url value="/resources/js/Login_BT2.js" var="Login_BT2" />
  <script type="text/javascript" src="${login}"></script>
- <script type="text/javascript" src="${Login_BT2}"></script>
 </body>
 </html>
