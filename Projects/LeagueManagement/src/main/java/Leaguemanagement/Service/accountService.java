@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import Leaguemanagement.DAO.AccountDAO;
 import Leaguemanagement.Entity.Account;
 import Leaguemanagement.Modal.accountModal;
+import Leaguemanagement.Utilities.AccountUltility;
 
 
 @Service("accountService")
@@ -17,10 +18,10 @@ public class accountService {
 	private AccountDAO accountDao;
 	
 
-	public Account login(accountModal accountmodal){
+	public accountModal login(accountModal accountmodal){
 		//Account account = accountDao.findOne(id);
 		Account account = accountDao.login(accountmodal.getUsername());
-		
+		accountmodal = AccountUltility.EntitytoModal(account);
 		
 		if(account == null) {
 			System.out.println("Account do not exist....");
@@ -29,7 +30,7 @@ public class accountService {
 		else {
 			if (account.getPassword().equalsIgnoreCase(accountmodal.getPassword())){
 				System.out.println("Login success...!");
-				return account;
+				return accountmodal;
 			}
 			else {
 				System.out.println("Login failed...!");
@@ -38,15 +39,8 @@ public class accountService {
 		}
 	}
 	public Account register(accountModal accountmodal){
-		
-		System.out.println(accountmodal.getFullname());
-		Account account  = new Account();
-		account.setFullname(accountmodal.getFullname());
-		account.setPassword(accountmodal.getPassword());
-		account.setPhoneNumber(accountmodal.getPhoneNumber());
-		System.out.println("asdads");
+		Account account  = AccountUltility.ModaltoEnity(accountmodal);
 		accountDao.save(account);
-		
 		return account;
 	}
 }
