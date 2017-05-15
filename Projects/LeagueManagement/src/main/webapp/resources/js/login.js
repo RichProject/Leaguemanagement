@@ -20,37 +20,46 @@ function test() {
 	alert("tag a click");
 }
 
+function login_success(data){
+	
+	//Set session 
+//	var session=var data = '@Session["UserName"]';
+	//Hiện thẻ li, tên người dùng
+    document.getElementById('userfullname').style.display = "block";
+    //Set tên user 
+    document.getElementById('profile').text = data.fullname;
+    //Ẩn cái popup đăng nhập
+    $("#loginmodal").modal('toggle');
+    
+    //Hiện thông Thông báo success
+    document.getElementById('successMessage').style.display = "block";
+    $('#successMessage').delay(2500).fadeOut('slow');
+}
 
+function login_fail(){
+	document.getElementById('errorMessage').style.display = "block";
+}
 $(document).ready(function(){
-//	//Login submmit
-//	$("#loginsubmit").submit(function(e) {
-//		$.ajax({
-//	           type: "POST",
-//	           url: "login",
-//	           contentType : "application/json;charset=UTF-8",
-//	           dataType : "json",
-//	           data : JSON.stringify({
-//	        	    	'username' : $("#loginPhone").val(),
-//	        	    	'password' : $("#loginpassword").val()
-//	        	    }),
-//	           success: function(data)
-//	           {
-//	        	   //Hiện thẻ li, tên người dùng
-//	               document.getElementById('userfullname').style.display = "block";
-//	               //Set tên user 
-//	               document.getElementById('profile').text = data.fullname;
-//	               //Ẩn cái popup đăng nhập
-//	               $("#loginmodal").modal('toggle');
-//	               
-//	               //Hiện thông Thông báo success
-//	               document.getElementById('successMessage').style.display = "block";
-//	               $('#successMessage').delay(2500).fadeOut('slow');
-//	           },
-//				error : function(data){
-//					document.getElementById('errorMessage').style.display = "block";
-//				}
-//	         });
-//	});
+	//Login submmit
+	$("#loginsubmit").submit(function(e) {
+		$.ajax({
+	           type: "POST",
+	           url: "login",
+	           contentType : "application/json;charset=UTF-8",
+	           dataType : "json",
+	           data : JSON.stringify({
+	        	    	'username' : $("#loginPhone").val(),
+	        	    	'password' : $("#loginpassword").val()
+	        	    }),
+	           success: function(data)
+	           {
+	        	   login_success(data);
+	           },
+				error : function(){
+					login_fail();
+				}
+	         });
+	});
 	
 
 	// Registy submmit
