@@ -36,6 +36,21 @@ function login_success(data){
     $('#successMessage').delay(2500).fadeOut('slow');
 }
 
+function register_success(data){
+//	//Set session 
+////	var session=var data = '@Session["UserName"]';
+//	//Hiện thẻ li, tên người dùng
+//    document.getElementById('userfullname').style.display = "block";
+//    //Set tên user 
+//    document.getElementById('profile').text = data.fullname;
+    //Ẩn cái popup đăng nhập
+    $("#loginmodal").modal('toggle');
+    
+    //Hiện thông Thông báo success
+    document.getElementById('successMessage_register').style.display = "block";
+    $('#successMessage_register').delay(2500).fadeOut('slow');
+}
+
 function login_fail(){
 	document.getElementById('errorMessage').style.display = "block";
 }
@@ -76,8 +91,7 @@ $(document).ready(function(){
 	        	    }),
 	           success: function(data)
 	           {
-	        	   document.getElementById('registysuccess').style.display = "block";
-	        	   $("#loginmodal").modal();
+	        	   register_success(data);
 	           },
 				error : function(data){
 					 alert("Registy error");

@@ -45,14 +45,13 @@ public class HomePageController {
 	public @ResponseBody accountModal login( @RequestBody accountModal accountmodal,HttpServletRequest request) {
 		accountModal account = accountservice.login(accountmodal);
 		
-		HttpSession session = request.getSession();
+	//	HttpSession session = request.getSession();
 		return account ;
 		
 	}
 	
 	@RequestMapping(value = "/registy", method = RequestMethod.POST)
 	public @ResponseBody Account registy( @RequestBody accountModal accountmodal) {
-
 		return accountservice.register(accountmodal) ;
 		
 	}
