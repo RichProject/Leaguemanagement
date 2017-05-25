@@ -18,7 +18,7 @@ public class accountService {
 	private AccountDAO accountDao;
 	
 
-	public accountModal login(accountModal accountmodal){
+	public Account login(accountModal accountmodal){
 		//Account account = accountDao.findOne(id);
 		Account account = accountDao.login(accountmodal.getUsername());
 		accountmodal = AccountUltility.EntitytoModal(account);
@@ -28,9 +28,11 @@ public class accountService {
 			return null;
 		}
 		else {
+			System.out.println("Entity password: "+account.getPassword());
+			System.out.println("Modal password: "+accountmodal.getPassword());
 			if (account.getPassword().equalsIgnoreCase(accountmodal.getPassword())){
 				System.out.println("Login success...!");
-				return accountmodal;
+				return account;
 			}
 			else {
 				System.out.println("Login failed...!");

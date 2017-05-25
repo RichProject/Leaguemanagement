@@ -15,32 +15,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
-
- 
-<style type="text/css">
-
-
-
-
-.bg {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-	
-  /* Preserve aspet ratio */
-  max-width: 100%;
-  min-height: 100%;
-}
-
-.abc {color:black;
-
-
- }
-</style>
-
-
 </head>
 <body id= "bg" >
 
@@ -112,9 +86,9 @@
 	                                <form id="loginsubmit" role="form" class="form-horizontal">
 	                                <div class="form-group">
 	                                    <label for="email" class="col-sm-2 control-label">
-	                                        Phone</label>
+	                                        Username</label>
 	                                    <div class="col-sm-10">
-	                                        <input type="text" class="form-control" id="loginPhone" placeholder="Email or phonenumber" />
+	                                        <input type="text" class="form-control" id="loginusername" placeholder="Email or phonenumber" />
 	                                    </div>
 	                                </div>
 	                                <div class="form-group">
@@ -157,6 +131,13 @@
 	                                        Mobile</label>
 	                                    <div class="col-sm-10">
 	                                        <input type="number" class="form-control" id="regis-phoneNumber" placeholder="Mobile" />
+	                                    </div>
+	                                </div>
+	                                 <div class="form-group">
+	                                    <label for="username" class="col-sm-2 control-label">
+	                                        Username</label>
+	                                    <div class="col-sm-10">
+	                                        <input type="text" class="form-control" id="regis-username" placeholder="Username" />
 	                                    </div>
 	                                </div>
 	                                <div class="form-group">

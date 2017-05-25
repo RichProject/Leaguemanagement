@@ -1,0 +1,20 @@
+.main {
+
+}
+
+body {
+    color: black;
+}
+.btn-save {
+	position: absolute;
+    left: 100px;
+    top: 150px;
+}
+
+
+
+.btn {
+	 background: #FFFAFA
+	 color: #C0C0C0;
+}
+}

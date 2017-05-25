@@ -63,7 +63,7 @@ $(document).ready(function(){
 	           contentType : "application/json;charset=UTF-8",
 	           dataType : "json",
 	           data : JSON.stringify({
-	        	    	'username' : $("#loginPhone").val(),
+	        	    	'username' : $("#loginusername").val(),
 	        	    	'password' : $("#loginpassword").val()
 	        	    }),
 	           success: function(data)
@@ -86,6 +86,7 @@ $(document).ready(function(){
 	           dataType : "json",
 	           data : JSON.stringify({
 	        	    	'fullname' : $("#regis-fullname").val(),
+	        	    	'username' : $("#regis-username").val(),
 	        	    	'phoneNumber' : $("#regis-phoneNumber").val(),
 	        	    	'password' : $("#regis-password").val()
 	        	    }),

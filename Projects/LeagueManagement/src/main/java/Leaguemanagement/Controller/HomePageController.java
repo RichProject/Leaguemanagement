@@ -42,11 +42,10 @@ public class HomePageController {
 
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public @ResponseBody accountModal login( @RequestBody accountModal accountmodal,HttpServletRequest request) {
-		accountModal account = accountservice.login(accountmodal);
-		
+	public @ResponseBody Account login( @RequestBody accountModal accountmodal,HttpServletRequest request) {
+		//accountservice.login(accountmodal);
 	//	HttpSession session = request.getSession();
-		return account ;
+		return accountservice.login(accountmodal);
 		
 	}
 	
