@@ -13,31 +13,48 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="/LeagueManagement/">League Management</a>
+      <a class="navbar-brand" href="#" onClick="index()">League Management</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">League</a></li>
-        <li><a href="#">Stadium</a></li>
-        <li><a href="/LeagueManagement/views/TeamManager.jsp">Team</a></li>
-        <li><a href="#">Player</a></li>
+        <li class="active"><a href="" onClick="index()">Home</a></li>
+        <li><a href="#" onClick="game()">Games</a></li>
+        <li><a href="#" onClick="league()">Leagues</a></li>
+        <li><a href="#"  onClick="stadium()">Stadiums</a></li>
+        <li><a href="#" onClick="team()">Teams</a></li>
+        <li><a href="#" onClick="player()">Players</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        	<li id="userfullname" style="display :none" class="dropdown"> 
 	       	<a id="profile" href="#" class="dropdown-toggle" data-toggle="dropdown">
 	       		<ul class="dropdown-menu " >
-			      <li><a href="#" onClick="test()">My profile</a></li>
+			      <li><a href="#" onClick="UserProfile()">My profile</a></li>
 			      <li><a href="#">CSS</a></li>
 			      <li><a href="#">Log out</a></li>
 			    </ul>
 	       	</a>
        	</li>
-       	
         <li><a id="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="bs-example">
+	<div id="successMessage" class="container alert alert-success fade in "
+		style="display: none; text-align: center; weight: 50%">
+		<!--         <a href="" class="close" data-dismiss="alert">&times;</a> -->
+		<strong>Success!</strong> Login successfully. Welcome to our
+		services...!
+	</div>
+	<div id="successMessage_register"
+		class="container alert alert-success fade in "
+		style="display: none; text-align: center; weight: 50%">
+		<!--         <a href="" class="close" data-dismiss="alert">&times;</a> -->
+		<strong>Success!</strong> Register successfully. You can use that
+		account to login!
+	</div>
+</div>
+<jsp:include page="/views/Login_popup.jsp"></jsp:include>	
+<jsp:include page="/views/UserProfile_popup.jsp"></jsp:include>	
 </body>
 </html>

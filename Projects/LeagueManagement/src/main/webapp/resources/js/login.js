@@ -1,24 +1,18 @@
 
 
 $("#login").click(function(){
-	document.getElementById('errorMessage').style.display = "none";
+//	document.getElementById('errorMessage').style.display = "none";
 	$("#email1").text="";
 	$("#exampleInputPassword1").text="";
 	$("#loginmodal").modal();
 })
 
-function test() {
-//    $(document).ready(function () {      
-//        $.ajax({
-//            url: "getusername",
-//            type: 'POST',
-//            success: function (result) {
-//                  
-//            }
-//        });
-//    });
-	alert("tag a click");
+function UserProfile() {
+//	document.getElementById('errorMessage').style.display = "none";
+
+	$("#accountModal").modal();
 }
+
 
 function login_success(data){
 	
@@ -50,6 +44,7 @@ function register_success(data){
     document.getElementById('successMessage_register').style.display = "block";
     $('#successMessage_register').delay(2500).fadeOut('slow');
 }
+
 
 function login_fail(){
 	document.getElementById('errorMessage').style.display = "block";

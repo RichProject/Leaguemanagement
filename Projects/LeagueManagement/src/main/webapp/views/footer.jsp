@@ -1,38 +1,15 @@
-<div class="container well">
-	<h2><center>Thank for choice us !</center></h2>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<div id="footer" class="container" >
+    <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway">--  League Management  --</p>
+            <br />
+                <a href="https://www.facebook.com/dtduy15"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:thanhduy.uit@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
 </div>
-<div id="footer">
-    <div class="container">
-        <div class="row">
-            <h3 class="footertext">About Us:</h3>
-            <br>
-              <div class="col-md-4">
-                <center>
-                  <img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains">
-                  <br>
-                  <h4 class="footertext">Programmer</h4>
-                  <p class="footertext">You can thank all the crazy programming here to this guy.<br>
-                </center>
-              </div>
-              <div class="col-md-4">
-                <center>
-                  <img src="http://oi60.tinypic.com/2z7enpc.jpg" class="img-circle" alt="...">
-                  <br>
-                  <h4 class="footertext">Artist</h4>
-                  <p class="footertext">All the images here are hand drawn by this man.<br>
-                </center>
-              </div>
-              <div class="col-md-4">
-                <center>
-                  <img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
-                  <br>
-                  <h4 class="footertext">Designer</h4>
-                  <p class="footertext">This pretty site and the copy it holds are all thanks to this guy.<br>
-                </center>
-              </div>
-            </div>
-            <div class="row">
-            <p><center><a href="#">Contact Stuff Here</a> <p class="footertext">Copyright 2014</p></center></p>
-        </div>
-    </div>
+    <hr />
 </div>

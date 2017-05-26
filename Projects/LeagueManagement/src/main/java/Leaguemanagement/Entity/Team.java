@@ -15,7 +15,8 @@ public class Team {
 	private String leaderName;
 	private int numberOfMatch;
 	private int win;
-	private float winrate;
+	private float winRate;
+	private String point;
 	private int numberOfMem;
 	private String address;
 	

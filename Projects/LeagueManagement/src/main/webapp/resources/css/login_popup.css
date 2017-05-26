@@ -22,3 +22,9 @@ div#OR {
     z-index: 1;
     background: #DFDFDF;
 }
+body {
+   color: black;
+   margin:0;
+   padding:0;
+   height:100%;
+}
