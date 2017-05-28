@@ -4,15 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Account {
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
 	
-	private String accountId;
-	
+	@Id
 	private String username;
 	
 	private	String password;
@@ -36,14 +36,6 @@ public class Account {
 
 	public void setId(long id) {
 		Id = id;
-	}
-
-	public String getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
 	}
 
 	public String getUsername() {
@@ -94,11 +86,10 @@ public class Account {
 		this.type = type;
 	}
 
-	public Account(long id, String accountId, String username, String password, String fullname, String phoneNumber,
+	public Account(long id, String username, String password, String fullname, String phoneNumber,
 			String address, String type) {
 		super();
 		Id = id;
-		this.accountId = accountId;
 		this.username = username;
 		this.password = password;
 		this.fullname = fullname;

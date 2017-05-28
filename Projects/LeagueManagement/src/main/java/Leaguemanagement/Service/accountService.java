@@ -19,9 +19,7 @@ public class accountService {
 	
 
 	public Account login(accountModal accountmodal){
-		//Account account = accountDao.findOne(id);
 		Account account = accountDao.login(accountmodal.getUsername());
-		accountmodal = AccountUltility.EntitytoModal(account);
 		
 		if(account == null) {
 			System.out.println("Account do not exist....");

@@ -9,14 +9,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <spring:url value="/resources/css/login_popup.css" var="logincss"/>
-  <spring:url value="/resources/css/footer.css" var="footercss"/>
+  <spring:url value="/resources/css/Footer.css" var="footercss"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="${logincss}">
   <link rel="stylesheet" href="${footercss}">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body id= "bg" >
+<body>
 
  	<jsp:include page="/views/header.jsp"></jsp:include>
  	
@@ -31,6 +31,8 @@
  <script type="text/javascript" src="${login}"></script>
  <spring:url value="/resources/js/navibar_pageload.js" var="pageload" />
  <script type="text/javascript" src="${pageload}"></script>
+ <spring:url value="/resources/js/GameManager.js" var="game" />
+ <script type="text/javascript" src="${game}"></script>
 
 </body>
 </html>

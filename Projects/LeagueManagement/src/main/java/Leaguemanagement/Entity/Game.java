@@ -1,5 +1,7 @@
 package Leaguemanagement.Entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,14 +14,17 @@ public class Game {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
 	
+	private String teamId;
 	private String teamLeader;
+	private String teamName;
 	private String phoneNumber;
 	private String stadium;
 	private String address;
 	private String time;
+	private Date date;
 	private String status;
-	private String point;
 	private String note;
+	private String point;
 	private float winRate;
 	
 	
@@ -28,21 +33,54 @@ public class Game {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public String getTeamId() {
+		return teamId;
+	}
 	
-	
-	public Game(long id, String teamLeader, String phoneNumber, String stadium, String address, String time,
-			String status, String point, String note, float winRate) {
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+
+	public Game(long id, String teamId, String teamLeader, String teamName, String phoneNumber, String stadium,
+			String address, String time, Date date, String status, String point, String note, float winRate) {
 		super();
 		Id = id;
+		this.teamId = teamId;
 		this.teamLeader = teamLeader;
+		this.teamName = teamName;
 		this.phoneNumber = phoneNumber;
 		this.stadium = stadium;
 		this.address = address;
 		this.time = time;
+		this.date = date;
 		this.status = status;
 		this.point = point;
 		this.note = note;
 		this.winRate = winRate;
+	}
+	public Date getDate() {
+		return date;
+	}
+
+
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+
+
+
+	public String getTeamName() {
+		return teamName;
+	}
+
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 

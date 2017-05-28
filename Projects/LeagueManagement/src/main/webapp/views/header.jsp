@@ -13,10 +13,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#" onClick="index()">League Management</a>
+    <a  href="#" onClick="index()"> <img
+			src="http://vectorlogo4u.com/wp-content/uploads/2015/11/Premier-League-Vector-Logo.png"
+			alt="fpt" height="100" width="300"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" style="margin-bottom: 15px">
         <li class="active"><a href="" onClick="index()">Home</a></li>
         <li><a href="#" onClick="game()">Games</a></li>
         <li><a href="#" onClick="league()">Leagues</a></li>
@@ -42,14 +44,14 @@
 <div class="bs-example">
 	<div id="successMessage" class="container alert alert-success fade in "
 		style="display: none; text-align: center; weight: 50%">
-		<!--         <a href="" class="close" data-dismiss="alert">&times;</a> -->
+		        <a href="" class="close" data-dismiss="alert">&times;</a>
 		<strong>Success!</strong> Login successfully. Welcome to our
 		services...!
 	</div>
 	<div id="successMessage_register"
 		class="container alert alert-success fade in "
 		style="display: none; text-align: center; weight: 50%">
-		<!--         <a href="" class="close" data-dismiss="alert">&times;</a> -->
+		        <a href="" class="close" data-dismiss="alert" >&times;</a>
 		<strong>Success!</strong> Register successfully. You can use that
 		account to login!
 	</div>

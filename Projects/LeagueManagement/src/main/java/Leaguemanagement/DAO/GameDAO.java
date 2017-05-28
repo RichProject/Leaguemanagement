@@ -1,6 +1,6 @@
 package Leaguemanagement.DAO;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,16 +8,13 @@ import org.springframework.data.repository.query.Param;
 
 import Leaguemanagement.Entity.Game;
 
-public interface GameDAO extends JpaRepository<Game, Long>{
+
+
+public interface GameDAO extends JpaRepository<Game, Long>  {
+
+//	@Query("SELECT acc FROM Account acc ")
+//	Account login();
 	
-	
-	
-	
-	//Get game open
-	@Query("SELECT a FROM Game a WHERE a.status='open' ")
-    public ArrayList<Game> getOpen();
-	
-	//Get game close
-	@Query("SELECT a FROM Game a WHERE a.status='close' ")
-    public ArrayList<Game> getClose(@Param("username") String username);
+//	@Query("SELECT * FROM Game")
+//    public List<Game> getAllGame();
 }

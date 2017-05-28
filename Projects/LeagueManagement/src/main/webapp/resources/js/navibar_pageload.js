@@ -2,6 +2,12 @@
  * 
  */
 
+//Change active tab in navi-bar
+$(".nav a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+
 function index(){
 	$.ajax({
 		url:"/LeagueManagement/views/home.jsp",
@@ -23,6 +29,7 @@ function game(){
 		dataType: 'text',
 		success: function(response){
 			$('.content').html(response);
+			loadgame();
 		},
 		error: function(response){
 			alert("error");

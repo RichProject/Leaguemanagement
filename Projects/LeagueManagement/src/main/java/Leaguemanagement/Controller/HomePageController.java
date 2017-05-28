@@ -1,5 +1,7 @@
 package Leaguemanagement.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +22,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import Leaguemanagement.Entity.Account;
+import Leaguemanagement.Entity.Game;
 import Leaguemanagement.Modal.accountModal;
 import Leaguemanagement.Service.accountService;
+import Leaguemanagement.Service.gameService;
 
 
 
@@ -31,6 +35,9 @@ public class HomePageController {
 
 	@Autowired
 	private accountService accountservice;
+	
+	@Autowired
+	private gameService gameservice;
 
 	static final Logger log = Logger.getLogger(HomePageController.class.getName());
 	
@@ -54,6 +61,16 @@ public class HomePageController {
 		return accountservice.register(accountmodal) ;
 		
 	}
+	
+	@RequestMapping(value = "/game", method = RequestMethod.POST)
+	public @ResponseBody List<Game> getalllist() {
+		List<Game> list = gameservice.getAll();
+		
+		return list ;
+		
+	}
+	
+	
 	
 
 	

@@ -24,10 +24,10 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th></th>
+						<th>STT</th>
 						<th>Team's name</th>
 						<th>Phone number</th>
-						<th></th>
+						<th>Action</th>
 					</tr>
 					<tr>
 						<th scope="row">1</th>
