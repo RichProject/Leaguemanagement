@@ -1,37 +1,35 @@
 package Leaguemanagement.Entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-
+@Embeddable
 public class Player {
-
-	
-	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
 	
 	@Id  
 	private String username;	
 	
-	@OneToOne @MapsId
+	@OneToOne @MapsId 
 	private Account account;
-	
-	private String teamId;
 	
 	private String position;
 	
-	private int gameplayed;
+	private int gamePlayed;
 	
 	private float winRate;
 	
@@ -42,6 +40,11 @@ public class Player {
 	private int totalRedCard;
 	
 	private int totalMinutePlayed;
+	
+	
+	@ManyToMany (fetch=FetchType.LAZY)
+	@JoinTable(name="Teams_Players")
+	private Set<Team> listTeams = new HashSet<Team>(0);
 
 	public Player() {
 		super();
@@ -49,32 +52,15 @@ public class Player {
 	}
 	
 	
-
-	public Player(long id, String username, Account account, String teamId, String position, int gameplayed,
-			float winRate, int totalGoal, int totalYellowCard, int totalRedCard, int totalMinutePlayed) {
-		super();
-		Id = id;
-		this.username = username;
-		this.account = account;
-		this.teamId = teamId;
-		this.position = position;
-		this.gameplayed = gameplayed;
-		this.winRate = winRate;
-		this.totalGoal = totalGoal;
-		this.totalYellowCard = totalYellowCard;
-		this.totalRedCard = totalRedCard;
-		this.totalMinutePlayed = totalMinutePlayed;
+	public Set<Team> getListTeams() {
+		return listTeams;
 	}
 
 
-
-	public long getId() {
-		return Id;
+	public void setListTeams(Set<Team> listTeams) {
+		this.listTeams = listTeams;
 	}
 
-	public void setId(long id) {
-		Id = id;
-	}
 
 	public String getUsername() {
 		return username;
@@ -92,14 +78,6 @@ public class Player {
 		this.account = account;
 	}
 
-	public String getTeamId() {
-		return teamId;
-	}
-
-	public void setTeamId(String teamId) {
-		this.teamId = teamId;
-	}
-
 	public String getPosition() {
 		return position;
 	}
@@ -108,12 +86,12 @@ public class Player {
 		this.position = position;
 	}
 
-	public int getGameplayed() {
-		return gameplayed;
+	public int getGamePlayed() {
+		return gamePlayed;
 	}
 
-	public void setGameplayed(int gameplayed) {
-		this.gameplayed = gameplayed;
+	public void setGamePlayed(int gameplayed) {
+		this.gamePlayed = gameplayed;
 	}
 
 	public float getWinRate() {

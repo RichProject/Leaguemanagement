@@ -19,13 +19,9 @@ function loadgame(){
 	        	$.each(data, function(i, item) {
 			        		var b= $('#listGames').html()
 							+ '<tr><td>'
-							+ item.id
+							+ item.gameID
 							+ '</td><td>'
-							+ item.teamId
-							+ '</td><td>'
-							+ item.teamName
-							+ '</td><td>'
-							+ item.teamLeader
+							+ item.teamCreate.teamName
 							+ '</td><td>'
 							+ item.date
 							+ '</td><td>'

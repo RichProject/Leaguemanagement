@@ -9,9 +9,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Account {
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
-	
 	@Id
 	private String username;
 	
@@ -28,14 +25,6 @@ public class Account {
 	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public long getId() {
-		return Id;
-	}
-
-	public void setId(long id) {
-		Id = id;
 	}
 
 	public String getUsername() {
@@ -86,10 +75,9 @@ public class Account {
 		this.type = type;
 	}
 
-	public Account(long id, String username, String password, String fullname, String phoneNumber,
+	public Account(String username, String password, String fullname, String phoneNumber,
 			String address, String type) {
 		super();
-		Id = id;
 		this.username = username;
 		this.password = password;
 		this.fullname = fullname;

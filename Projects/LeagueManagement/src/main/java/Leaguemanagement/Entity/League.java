@@ -8,9 +8,9 @@ import javax.persistence.Id;
 @Entity
 public class League {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
+	private String leagueID;
 	
 	private String leagueName;
+	
 	private String gameType;
 }

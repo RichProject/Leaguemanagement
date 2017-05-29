@@ -1,24 +1,31 @@
 package Leaguemanagement.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 @Entity
 @Embeddable
 public class Team {
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
 	
 	@Id
 	private String teamID;
 	
 	private String teamName;
 	
-	private String leaderName;
+	@OneToOne (fetch=FetchType.LAZY)
+	private Player leader;
 	
 	private int numberOfMatch;
 	
@@ -32,37 +39,24 @@ public class Team {
 	
 	private String address;
 	
+	@ManyToMany	(fetch=FetchType.LAZY, mappedBy="listTeams")
+	private Set<Player> listPlayers = new HashSet<Player>();
+	
 	public Team() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	
-	
-	public Team(long id, String teamID, String teamName, String leaderName, int numberOfMatch, int win, float winRate,
-			String point, int numberOfMem, String address) {
-		super();
-		Id = id;
-		this.teamID = teamID;
-		this.teamName = teamName;
-		this.leaderName = leaderName;
-		this.numberOfMatch = numberOfMatch;
-		this.win = win;
-		this.winRate = winRate;
-		this.point = point;
-		this.numberOfMem = numberOfMem;
-		this.address = address;
+
+	public Set<Player> getListPlayers() {
+		return listPlayers;
 	}
 
 
-
-	public long getId() {
-		return Id;
+	public void setListPlayers(Set<Player> listPlayers) {
+		this.listPlayers = listPlayers;
 	}
 
-	public void setId(long id) {
-		Id = id;
-	}
 
 	public String getTeamID() {
 		return teamID;
@@ -80,13 +74,24 @@ public class Team {
 		this.teamName = teamName;
 	}
 
-	public String getLeaderName() {
-		return leaderName;
+
+	public Player getLeader() {
+		return leader;
 	}
 
-	public void setLeaderName(String leaderName) {
-		this.leaderName = leaderName;
+
+
+
+
+
+	public void setLeader(Player leader) {
+		this.leader = leader;
 	}
+
+
+
+
+
 
 	public int getNumberOfMatch() {
 		return numberOfMatch;

@@ -19,10 +19,8 @@
 		  	<table class="table" id="mytable">
 				<thead>
 	 				<tr>
-						    <th>STT</th>
-						    <th>Team ID</th>
+						    <th>Game ID</th>
 						    <th>Team name</th>
-						    <th>Team lead</th>
 						    <th>Date</th>
 						    <th>Time</th>
 						    <th>Stadium</th>
