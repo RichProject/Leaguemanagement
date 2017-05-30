@@ -1,5 +1,8 @@
 package Leaguemanagement.Entity;
 
+import java.sql.Date;
+
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
+@Embeddable
 public class Account {
 	
 	@Id
@@ -18,6 +22,8 @@ public class Account {
 	
 	private String phoneNumber;
 	
+	private Date birthday;
+	
 	private String address;
 	
 	private String type;
@@ -26,6 +32,17 @@ public class Account {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Date getBirthday() {
+		return birthday;
+	}
+
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
 
 	public String getUsername() {
 		return username;

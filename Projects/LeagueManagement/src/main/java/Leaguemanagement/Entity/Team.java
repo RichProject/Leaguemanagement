@@ -1,24 +1,15 @@
 package Leaguemanagement.Entity;
 
+
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
+
 
 @Entity
 @Embeddable
 public class Team {
-	
-	
 	@Id
 	private String teamID;
 	
@@ -39,7 +30,7 @@ public class Team {
 	
 	private String address;
 	
-	@ManyToMany	(fetch=FetchType.LAZY, mappedBy="listTeams")
+	@ManyToMany(mappedBy = "listTeams",fetch=FetchType.EAGER)
 	private Set<Player> listPlayers = new HashSet<Player>();
 	
 	public Team() {
@@ -47,7 +38,7 @@ public class Team {
 		// TODO Auto-generated constructor stub
 	}
 	
-
+	
 	public Set<Player> getListPlayers() {
 		return listPlayers;
 	}
@@ -79,19 +70,9 @@ public class Team {
 		return leader;
 	}
 
-
-
-
-
-
 	public void setLeader(Player leader) {
 		this.leader = leader;
 	}
-
-
-
-
-
 
 	public int getNumberOfMatch() {
 		return numberOfMatch;

@@ -1,12 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>Player tab</h1>
-</body>
-</html>
+ <div class="container">       
+		  	<table class= "table" >
+		  	<thead>
+					<tr>
+						<th>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search...">
+								<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+								</span>
+							</div>
+						</th>			
+					</tr>
+				</thead>
+		  	</table>
+		  	<table class="table" id="playerTable">
+				<thead>
+	 				<tr>
+						    <th>Player ID</th>
+						    <th>Full Name</th>
+						    <th>Birthday</th>
+						    <th>Position</th>
+						    <th>Address</th>
+						    <th>Win rate</th>
+						    <th>Detail</th>
+						</tr>
+				</thead>
+				<tbody   id="listPlayers">
+				</tbody>
+			</table>
+		  </div>

@@ -3,19 +3,18 @@ package Leaguemanagement.Entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Embeddable
@@ -41,22 +40,20 @@ public class Player {
 	
 	private int totalMinutePlayed;
 	
-	
-	@ManyToMany (fetch=FetchType.LAZY)
-	@JoinTable(name="Teams_Players")
-	private Set<Team> listTeams = new HashSet<Team>(0);
+	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinTable(name = "Players_Teams", joinColumns = @JoinColumn(name = "player_id", referencedColumnName = "account_username"), inverseJoinColumns = @JoinColumn(name = "team_id", referencedColumnName = "teamID"))
+	@JsonIgnore
+	private Set<Team> listTeams = new HashSet<Team>();
 
 	public Player() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 	public Set<Team> getListTeams() {
 		return listTeams;
 	}
-
-
+	
 	public void setListTeams(Set<Team> listTeams) {
 		this.listTeams = listTeams;
 	}

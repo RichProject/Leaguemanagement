@@ -58,6 +58,7 @@ function stadium(){
 		dataType: 'text',
 		success: function(response){
 			$('.content').html(response);
+			loadstadium();
 		},
 		error: function(response){
 			alert("error");
@@ -86,6 +87,7 @@ function player(){
 		dataType: 'text',
 		success: function(response){
 			$('.content').html(response);
+			loadplayer();
 		},
 		error: function(response){
 			alert("error");

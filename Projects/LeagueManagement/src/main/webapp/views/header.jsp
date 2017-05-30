@@ -22,7 +22,7 @@
         <li class="active"><a href="" onClick="index()">Home</a></li>
         <li><a href="#" onClick="game()">Games</a></li>
         <li><a href="#" onClick="league()">Leagues</a></li>
-        <li><a href="#"  onClick="stadium()">Stadiums</a></li>
+        <li><a href="#" onClick="stadium()">Stadiums</a></li>
         <li><a href="#" onClick="team()">Teams</a></li>
         <li><a href="#" onClick="player()">Players</a></li>
       </ul>

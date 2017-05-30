@@ -23,9 +23,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import Leaguemanagement.Entity.Account;
 import Leaguemanagement.Entity.Game;
+import Leaguemanagement.Entity.Player;
+import Leaguemanagement.Entity.Stadium;
 import Leaguemanagement.Modal.accountModal;
 import Leaguemanagement.Service.accountService;
 import Leaguemanagement.Service.gameService;
+import Leaguemanagement.Service.playerService;
+import Leaguemanagement.Service.stadiumService;
 
 
 
@@ -38,6 +42,12 @@ public class HomePageController {
 	
 	@Autowired
 	private gameService gameservice;
+	
+	@Autowired
+	private playerService playerservice;
+	
+	@Autowired
+	private stadiumService stadiumservice;
 
 	static final Logger log = Logger.getLogger(HomePageController.class.getName());
 	
@@ -63,8 +73,23 @@ public class HomePageController {
 	}
 	
 	@RequestMapping(value = "/game", method = RequestMethod.POST)
-	public @ResponseBody List<Game> getalllist() {
+	public @ResponseBody List<Game> getalllistgame() {
 		List<Game> list = gameservice.getAll();
+		
+		return list ;
+		
+	}
+	
+	@RequestMapping(value = "/player", method = RequestMethod.POST)
+	public @ResponseBody List<Player> getalllistplayer() {
+		List<Player> list = playerservice.getAll();
+		
+		return list ;
+		
+	}
+	@RequestMapping(value = "/stadium", method = RequestMethod.POST)
+	public @ResponseBody List<Stadium> getallstadium() {
+		List<Stadium> list = stadiumservice.getAll();
 		
 		return list ;
 		

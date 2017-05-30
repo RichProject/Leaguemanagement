@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+
+.glyphicon-ok-sign {
+     color: green;
+}
+
+.glyphicon-earphone{
+	 color: green;
+}
+.glyphicon-remove{
+	color:red;
+}
+.glyphicon-info-sign{
+	color:blue;
+}

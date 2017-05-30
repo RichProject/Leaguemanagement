@@ -3,15 +3,10 @@ package Leaguemanagement.Entity;
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
-
 import org.hibernate.annotations.Proxy;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Proxy(lazy = false) 
@@ -20,7 +15,7 @@ public class Game {
 	@Id
 	private String gameID;
 	
-	@OneToOne
+	@OneToOne (fetch=FetchType.EAGER)
 	private Team teamCreate;
 	
 	@OneToOne
