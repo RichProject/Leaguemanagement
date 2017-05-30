@@ -18,8 +18,7 @@ function loadstadium(){
 	        		if(item.status == "available"){
 	        			var icon = '<i class="glyphicon glyphicon-remove"></i>';
 	        		}
-	        		
-			        		var b= $('#listGames').html()
+			        		var b= $('#listStadium').html()
 							+ '<tr><td>'
 							+ item.stadiumID
 							+ '</td><td>'
@@ -36,12 +35,14 @@ function loadstadium(){
 							+ item.ownerName.phoneNumber
 							+ '</td><td>'
 							+ item.ownerName.fullname
+							+ '</td><td>'
+							+ getStar(item.pointReview)
 							+ '</td><td><i class="stadiuminfo glyphicon glyphicon-info-sign"></i></td></tr>';
 					$('#listStadium').html(b);
 					$(".stadiuminfo").bind("click", function() {
 						var table = document.getElementById('stadiumTable');
 						var rowclicked=$(this).closest('tr').index();
-						stadiuminfo_click(data);
+						stadiuminfo_click(data[rowclicked]);
 					});
 				});
 	        },
@@ -54,29 +55,28 @@ function loadstadium(){
 	});
 }
 
-function stadiuminfo_click(data){
+function stadiuminfo_click(object){
 	
-//	document.getElementById("game_teamName").value=object.gameID;
-//	document.getElementById("game_phone").value=object.teamCreate.leader.account.phoneNumber;
-//	document.getElementById("game_totalMatchs").value=object.teamCreate.numberOfMatch;
-//	document.getElementById("game_win").value=object.teamCreate.win;
-//	document.getElementById("game_winRate").value=object.teamCreate.winRate;
-//	document.getElementById("game_pointReview").value=object.teamCreate.point;
-//	document.getElementById("game_members").value=object.teamCreate.numberOfMem;
-//	$('#game_listplayers').html("");
-//	$.each(object.teamCreate.listPlayers, function(i, item) {
-//		var b= $('#game_listplayers').html()
-//		+ '<tr><td>'
-//		+ item.account.username
-//		+ '</td><td>'
-//		+ item.account.fullname
-//		+ '</td><td>'
-//		+ item.account.phoneNumber
-//		+ '</td><td>'
-//		+ '<i class="fa fa-facebook-official"></i>'
-//		+ '</td></tr>';
-//		$('#game_listplayers').html(b);
-//	});
-//	$("#game_teamInfo").modal();
+	if(object.haveClothShop == true) document.getElementById("stadium_haveShop").value= "Yes";
+	else document.getElementById("stadium_haveShop").value= "No";
 	
+	if(object.haveCanteen == true) document.getElementById("stadium_haveCanteen").value= "Yes";
+	else document.getElementById("stadium_haveCanteen").value= "No";
+	
+	document.getElementById("stadium_ground5").value=object.fiveGround;
+	document.getElementById("stadium_ground5_prize").value=object.priceFiveGround;
+	document.getElementById("stadium_ground7").value=object.sevenGround;
+	document.getElementById("stadium_ground7_prize").value=object.priceSevenGround;
+	document.getElementById("stadium_ground11").value=object.elevenGround;
+	document.getElementById("stadium_ground11_prize").value=object.priceElevenGround;
+	$("#stadium_stadiumInfo").modal();
+}
+
+function getStar(pointReview){
+	var starString='';
+	var i = 0;
+		for(i;i<pointReview;i++){
+			starString=starString +'<i class="fa fa-star" aria-hidden="true"></i>';
+		}
+		return starString;
 }

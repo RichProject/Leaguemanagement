@@ -53,6 +53,8 @@ public class Stadium {
 	
 	@Type(type = "org.hibernate.type.NumericBooleanType")
 	private boolean isFull;
+	
+	private int pointReview;
 
 	public Stadium() {
 		super();
@@ -83,6 +85,19 @@ public class Stadium {
 		this.haveClothShop = haveClothShop;
 		this.haveCanteen = haveCanteen;
 		this.isFull = isFull;
+		
+	}
+
+
+
+	public int getPointReview() {
+		return pointReview;
+	}
+
+
+
+	public void setPointReview(int pointReview) {
+		this.pointReview = pointReview;
 	}
 
 

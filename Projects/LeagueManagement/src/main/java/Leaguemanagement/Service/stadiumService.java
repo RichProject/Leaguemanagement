@@ -22,4 +22,13 @@ public class stadiumService {
 		listStadium= stadiumDao.findAll();
 		return listStadium;
 	}
+	
+	public boolean addStadium(Stadium stadium){
+		try{
+		stadiumDao.save(stadium);
+		}catch(Exception e){
+			return false;
+		}
+		return true;
+	}
 }

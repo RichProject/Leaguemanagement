@@ -87,11 +87,19 @@ public class HomePageController {
 		return list ;
 		
 	}
+	
 	@RequestMapping(value = "/stadium", method = RequestMethod.POST)
 	public @ResponseBody List<Stadium> getallstadium() {
 		List<Stadium> list = stadiumservice.getAll();
 		
 		return list ;
+		
+	}
+	
+	@RequestMapping(value = "/createGame", method = RequestMethod.POST)
+	public @ResponseBody boolean createGame(@RequestBody Stadium stadium,HttpServletRequest request) {
+		
+		return  stadiumservice.addStadium(stadium);
 		
 	}
 	

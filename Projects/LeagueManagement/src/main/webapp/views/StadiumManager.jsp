@@ -27,6 +27,7 @@
 						    <th class="text-center">Status</th>
 						    <th class="text-center">Phone</th>
 						    <th class="text-center">Owner</th>
+						     <th class="text-center">Review</th>
 						    <th class="text-center">Detail</th>
 						</tr>
 				</thead>
@@ -36,7 +37,7 @@
 		  </div>
 <div class="container">
 		<!--Begin Modal -->
-		<div class="modal fade" id="game_stadiumInfo" role="dialog">
+		<div class="modal fade" id="stadium_stadiumInfo" role="dialog">
 			<div class="modal-dialog">
 
 				<!--Begin Modal content-->
@@ -51,98 +52,105 @@
 
 					<!-- Begin Modal Body-->
 					<div class="modal-body">
-						<div class="panel panel-default">
+						<div class="panel panel-info text-center">
 
 							<!-- First panel -->
 							<div class="panel-heading">Overview</div>
+
+
 							<div class="panel-body">
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Ground 5 people:</label>
-									<div class="col-md-8">
-										<input id="stadium_ground5" type="text" class="form-control text-center" disabled >
-										<span id="stadium_ground5_error" style="color: red;"></span>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Price for 5-ground:</label>
-									<div class="col-md-8">
-										<input id="stadium_ground5_prize" type="text" class="form-control text-center" disabled >
-										<span id="stadium_ground5_prize_error" style="color: red;"></span>
-									</div>
-								</div>
+								<form class="form-horizontal">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
 
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Ground 7 people:</label>
-									<div class="col-md-8">
-										<input id="stadium_ground7" type="text" class="form-control text-center" disabled>
-										<span id="stadium_ground7_error" style="color: red;"></span>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Price for 7-ground:</label>
-									<div class="col-md-8">
-										<input id="stadium_ground7_prize" type="text" class="form-control text-center" disabled >
-										<span id="stadium_ground7_prize_error" style="color: red;"></span>
-									</div>
-								</div>
+											<label class="control-label col-md-8 required">Ground-5:</label>
+												<div class="col-md-4">
+													<input id="stadium_ground5" type="text" class="form-control text-center" readonly>
+													<span id="stadium_ground5_error" style="color: red;"></span>
+												</div>
+											</div>
+										</div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Ground 11 people:</label>
-									<div class="col-md-8">
-										<input id="stadium_ground11" type="text" class="form-control text-center" disabled>
-										<span id="stadium_ground11_error" style="color: red;"></span>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4 required">Price:</label>
+												<div class="col-md-6">
+													<input id="stadium_ground5_prize" type="text" class="form-control text-center" readonly >
+													<span id="stadium_ground5_prize_error" style="color: red;"></span>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Price for 11-ground:</label>
-									<div class="col-md-8">
-										<input id="stadium_ground11_prize" type="text" class="form-control text-center" disabled >
-										<span id="stadium_ground7_prize_error" style="color: red;"></span>
-									</div>
-								</div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Shop inside:</label>
-									<div class="col-md-8">
-										<input id="stadium_haveShop" type="text" class="form-control text-center" disabled>
-										<span id="stadium_haveShop_win_error" style="color: red;"></span>
-									</div>
-								</div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Canteen inside:</label>
-									<div class="col-md-8">
-										<input id="stadium_haveCanteen" type="text" class="form-control text-center" disabled>
-										<span id="stadium_haveCanteen_error" style="color: red;"></span>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+
+											<label class="control-label col-md-8 required">Ground-7:</label>
+												<div class="col-md-4">
+													<input id="stadium_ground7" type="text" class="form-control text-center" readonly >
+													<span id="stadium_ground7_error" style="color: red;"></span>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4 required">Price:</label>
+												<div class="col-md-6">
+													<input id="stadium_ground7_prize" type="text" class="form-control text-center" readonly >
+													<span id="stadium_ground7_prize_error" style="color: red;"></span>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 required">Points review:</label>
-									<div class="col-md-8">
-										<input id="stadium_pointReview" type="text" class="form-control text-center" disabled>
-										<span id="stadium_pointReview_error" style="color: red;"></span>
+
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+
+											<label class="control-label col-md-8 required">Ground-11:</label>
+												<div class="col-md-4">
+													<input id="stadium_ground11" type="text" class="form-control text-center" readonly >
+													<span id="stadium_ground11_error" style="color: red;"></span>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4 required">Price:</label>
+												<div class="col-md-6">
+													<input id="stadium_ground11_prize" type="text" class="form-control text-center" readonly >
+													<span id="stadium_ground11_prize_error" style="color: red;"></span>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
+									
+									<div class="form-group">
+										<label class="control-label col-md-4 required">Shop inside:</label>
+										<div class="col-md-7">
+											<input id="stadium_haveShop" type="text" class="form-control text-center" readonly>
+											<span id="stadium_haveShop_win_error" style="color: red;"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-4 required">Canteen inside:</label>
+										<div class="col-md-7">
+											<input id="stadium_haveCanteen" type="text" class="form-control text-center" readonly>
+											<span id="stadium_haveCanteen_error" style="color: red;"></span>
+										</div>
+									</div>
+
+								</form>
 							</div>
 							
-							<!-- List team panel -->
-<!-- 							<div class="panel-heading">List players -->
-<!-- 							</div> -->
-<!-- 							<div class="panel-body" > -->
-<!-- 								<table class="display " style="width: 90%; height: 65%;"> -->
-<!-- 									<thead class="text-center" style="width: 10%"> -->
-<!-- 										<tr > -->
-<!-- 											<th class="text-center">Account ID</th> -->
-<!-- 											<th class="text-center">Full name</th> -->
-<!-- 											<th class="text-center">Phone</th> -->
-<!-- 											<th class="text-center">Facebook</th> -->
-<!-- 										</tr> -->
-<!-- 									</thead> -->
-<!-- 									<tbody id="game_listplayers" class="text-center"> -->
-<!-- 									</tbody> -->
-<!-- 								</table> -->
-<!-- 							</div> -->
+							
 						</div>
 						<!-- End panel-default-->
 					</div>
@@ -150,7 +158,7 @@
 
 					<!-- Begin Modal Footer-->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" onClick="">Back</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">Back</button>
 					</div>
 					<!-- End Modal Footer-->
 				</div>
@@ -158,6 +166,5 @@
 
 			</div>
 		</div>
-</div>
-
+	</div>
 

@@ -31,7 +31,8 @@
 	       	<a id="profile" href="#" class="dropdown-toggle" data-toggle="dropdown">
 	       		<ul class="dropdown-menu " >
 			      <li><a href="#" onClick="UserProfile()">My profile</a></li>
-			      <li><a href="#">CSS</a></li>
+			      <li><a href="#">My Stadium</a></li>
+			      <li><a href="#">My Team</a></li>
 			      <li><a href="#">Log out</a></li>
 			    </ul>
 	       	</a>

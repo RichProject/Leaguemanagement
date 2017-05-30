@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Proxy(lazy = false) 
 public class Game {
@@ -16,6 +18,7 @@ public class Game {
 	private String gameID;
 	
 	@OneToOne (fetch=FetchType.EAGER)
+	@JsonIgnore
 	private Team teamCreate;
 	
 	@OneToOne
