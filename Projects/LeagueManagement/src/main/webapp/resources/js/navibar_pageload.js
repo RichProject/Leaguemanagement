@@ -36,19 +36,19 @@ function game(){
 		},
 	})
 }
-function league(){
-	$.ajax({
-		url:"/LeagueManagement/views/GameManager.jsp",
-		type: "GET",
-		dataType: 'text',
-		success: function(response){
-			$('.content').html(response);
-		},
-		error: function(response){
-			alert("error");
-		},
-	})
-}
+//function league(){
+//	$.ajax({
+//		url:"/LeagueManagement/views/GameManager.jsp",
+//		type: "GET",
+//		dataType: 'text',
+//		success: function(response){
+//			$('.content').html(response);
+//		},
+//		error: function(response){
+//			alert("error");
+//		},
+//	})
+//}
 
 //Tab league page-load
 function stadium(){

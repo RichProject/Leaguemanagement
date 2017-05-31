@@ -16,8 +16,15 @@ function UserProfile() {
 
 function login_success(data){
 	
-	//Set session 
-//	var session=var data = '@Session["UserName"]';
+	
+	
+	
+	//Local storage
+	alert(data.type);
+	localStorage.setItem("account", JSON.stringify(data));
+	
+	
+	
 	//Hiện thẻ li, tên người dùng
     document.getElementById('userfullname').style.display = "block";
     //Set tên user 
@@ -38,7 +45,7 @@ function register_success(data){
 //    //Set tên user 
 //    document.getElementById('profile').text = data.fullname;
     //Ẩn cái popup đăng nhập
-    $("#loginmodal").modal('toggle');
+ //   $("#loginmodal").modal('toggle');
     
     //Hiện thông Thông báo success
     document.getElementById('successMessage_register').style.display = "block";
@@ -63,6 +70,7 @@ $(document).ready(function(){
 	        	    }),
 	           success: function(data)
 	           {
+	        	   alert("befffffff"+data.username);
 	        	   login_success(data);
 	           },
 				error : function(){

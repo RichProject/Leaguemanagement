@@ -7,7 +7,7 @@
 						</th>
 						<th>
 							<div class="input-group">
-								<input type="text" id="searchGame" class="form-control" onkeyup="filterStadiumName()" placeholder="Search...">
+								<input type="text" id="searchStadium" class="form-control" onkeyup="filterStadiumName()" placeholder="Search...">
 								<span class="input-group-btn">
 								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
 								</span>

@@ -23,27 +23,14 @@ function loadplayer(){
 							+ '</td><td>'
 							+ item.winRate
 							+ '</td><td><i class="playerinfo glyphicon glyphicon-info-sign"></i> <i class="playercontact glyphicon glyphicon-earphone"></i></td></tr>';
-					// alert(b);
 					$('#listPlayers').html(b);
 
 					$(".playerinfo").bind("click", function() {
-						
-						
 						alert("player info clicked");
-					//
-//						var table = document.getElementById('playerTable');
-//						var rowclicked=$(this).closest('tr').index()+1;
-//				        var teamId = table.rows[rowclicked].cells[1].innerHTML;
-//						gameinfo_click(teamId,data);
 					});
 
 					$(".playercontact").bind("click", function() {
-						
 						alert("player contact clicked");
-//						var table = document.getElementById('playerTable');
-//						var rowclicked=$(this).closest('tr').index()+1;
-//				        var teamId = table.rows[rowclicked].cells[1].innerHTML;
-//						gameinfo_click(teamId,data);
 					});
 				});
 	        },
@@ -51,7 +38,23 @@ function loadplayer(){
 					alert("Load games failed ...! ");
 				}
 	      });
-		
-		
 	});
 }
+
+function filterPlayerName() {
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("searchPlayer");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("playerTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[1];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}

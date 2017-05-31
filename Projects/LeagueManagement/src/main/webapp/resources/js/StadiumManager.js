@@ -12,10 +12,10 @@ function loadstadium(){
 	        success: function(data) 
 	        {
 	        	$.each(data, function(i, item) {
-	        		if(item.status == "full") {
+	        		if(item.status == "available") {
 	        			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
 	        		}
-	        		if(item.status == "available"){
+	        		if(item.status == "full"){
 	        			var icon = '<i class="glyphicon glyphicon-remove"></i>';
 	        		}
 			        		var b= $('#listStadium').html()
@@ -80,3 +80,21 @@ function getStar(pointReview){
 		}
 		return starString;
 }
+
+function filterStadiumName() {
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("searchStadium");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("stadiumTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[1];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}

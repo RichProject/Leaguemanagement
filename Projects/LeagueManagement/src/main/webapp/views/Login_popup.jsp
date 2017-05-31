@@ -14,12 +14,12 @@
 						style="border-right: 1px dotted #C2C2C2; padding-right: 30px;">
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
-							<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+							<li><a class="active" href="#Login1" data-toggle="tab">Login</a></li>
+							<li><a href="#Registration1" data-toggle="tab">Registration</a></li>
 						</ul>
 						<!-- Tab panes -->
 						<div class="tab-content">
-							<div class="tab-pane active" id="Login">
+							<div class="tab-pane active" id="Login1">
 								<form id="loginsubmit" role="form" class="form-horizontal">
 									<div class="form-group">
 										<label for="email" class="col-sm-2 control-label">
@@ -52,7 +52,7 @@
 									</div>
 								</form>
 							</div>
-							<div class="tab-pane" id="Registration">
+							<div class="tab-pane" id="Registration1">
 								<form id="registration-submit" role="form"
 									class="form-horizontal">
 									<div class="form-group">

@@ -18,7 +18,6 @@ public class Game {
 	private String gameID;
 	
 	@OneToOne (fetch=FetchType.EAGER)
-	@JsonIgnore
 	private Team teamCreate;
 	
 	@OneToOne

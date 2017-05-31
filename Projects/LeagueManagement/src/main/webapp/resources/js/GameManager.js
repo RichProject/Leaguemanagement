@@ -1,7 +1,21 @@
 /**
  * 
  */
-
+$(document).ready(function(){
+//	$('#otherStadium_checkbox').on('change', function() { 
+//	    // From the other examples
+//		alert("changed");
+//	    if (!this.checked) {
+//	        var sure = confirm("Are you sure?");
+//	        this.checked = !sure;
+//	        $('#textbox1').val(sure.toString());
+//	    }
+//	});
+	if($('.otherStadium_checkbox').is(':checked')){
+		alert("checkedddddd");
+	}
+//	$('.otherStadium_checkbox').prop('checked', true);
+});
 function loadgame(){
 	//Load list game from database
 	$(document).ready(function(){
@@ -12,37 +26,37 @@ function loadgame(){
 	        dataType : "json",
 	        success: function(data)
 	        {
-	        	$.each(data, function(i, item) {
-	        		if(item.status == "open") {
-	        			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
-	        		}
-	        		if(item.status == "close"){
-	        			var icon = '<i class="glyphicon glyphicon-remove"></i>';
-	        		}
-	        		
-			        		var b= $('#listGames').html()
-							+ '<tr><td>'
-							+ item.gameID
-							+ '</td><td>'
-							+ item.teamCreate.teamName
-							+ '</td><td>'
-							+ item.date
-							+ '</td><td>'
-							+ item.time
-							+ '</td><td>'
-							+ item.stadium.stadiumName
-							+ '</td><td>'
-							+ item.address
-							+ '</td><td>'
-							+ icon
-							+ '</td><td><i class="gameinfo glyphicon glyphicon-info-sign"></i></td></tr>';
-					$('#listGames').html(b);
-					$(".gameinfo").bind("click", function() {
-						var table = document.getElementById('gameTable');
-						var rowclicked=$(this).closest('tr').index();
-						gameinfo_click(data[rowclicked]);
+		        	$.each(data, function(i, item) {
+		        		if(item.status == "open") {
+		        			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
+		        		}
+		        		if(item.status == "close"){
+		        			var icon = '<i class="glyphicon glyphicon-remove"></i>';
+		        		}
+				        		var c= $('#listGames').html()
+								+ '<tr><td>'
+								+ item.gameID
+								+ '</td><td>'
+								+ item.teamCreate.teamName
+								+ '</td><td>'
+								+ item.date
+								+ '</td><td>'
+								+ item.time
+								+ '</td><td>'
+								+ item.stadium.stadiumName
+								+ '</td><td>'
+								+ item.stadium.address
+								+ '</td><td>'
+								+ icon
+								+ '</td><td><i class="gameinfo glyphicon glyphicon-info-sign"></i></td></tr>';
+						$('#listGames').html(c);
+						$(".gameinfo").bind("click", function() {
+							var table = document.getElementById('gameTable');
+							var rowclicked=$(this).closest('tr').index();
+							gameinfo_click(data[rowclicked]);
+						});
 					});
-				});
+	        	
 	        },
 				error : function(){
 					alert("Load games failed ...! ");
@@ -54,8 +68,10 @@ function loadgame(){
 }
 
 function gameinfo_click(object){
-	
-	document.getElementById("game_teamName").value=object.gameID;
+	var object2 = localStorage.getItem("account");
+//	;console.log('test account storage: ', JSON.parse(object2));
+	alert( JSON.parse(object2).username);
+	document.getElementById("game_teamName").value=object.teamCreate.teamName;
 	document.getElementById("game_phone").value=object.teamCreate.leader.account.phoneNumber;
 	document.getElementById("game_totalMatchs").value=object.teamCreate.numberOfMatch;
 	document.getElementById("game_win").value=object.teamCreate.win;
@@ -97,3 +113,17 @@ function filterTeamName() {
 	    }       
 	  }
 	}
+//$(document).ready(function(){
+//	
+//	if($('#otherStadium_checkbox').attr('checked')){
+//		alert("checkbox checked");
+//		$(".stadium").prop('disabled', 'disabled');
+//		$(".otherStadium").prop('enable', 'enable');
+//	}
+//	else{
+//		alert("checkbox unchecked");
+//		$(".stadium").prop('enable', 'enable');
+//		$(".otherStadium").prop('disabled', 'disabled');
+//	}
+//});
+
