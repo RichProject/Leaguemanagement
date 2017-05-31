@@ -30,7 +30,7 @@ function loadplayer(){
 					});
 
 					$(".playercontact").bind("click", function() {
-						alert("player contact clicked");
+						alert(data[0].listTeams);
 					});
 				});
 	        },

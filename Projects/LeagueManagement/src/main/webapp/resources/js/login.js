@@ -1,10 +1,28 @@
 
 
+//CHECK LOGIN 
+$(document).ready(function(){
+		if(localStorage.getItem("account") != null)
+		{
+		 document.getElementById('profile').text = JSON.parse(localStorage.getItem("account")).fullname;
+		 document.getElementById('userfullname').style.display = "block";
+		}
+});
+
 $("#login").click(function(){
-//	document.getElementById('errorMessage').style.display = "none";
-	$("#email1").text="";
-	$("#exampleInputPassword1").text="";
-	$("#loginmodal").modal();
+	
+	if(localStorage.getItem("account") == null){
+		document.getElementById('errorMessage').style.display = "none";
+		
+		document.getElementById("loginusername").value="";
+		document.getElementById("loginpassword").value="";
+		$("#loginmodal").modal();
+	}
+	else{
+		 document.getElementById('alreadyLogin').style.display = "block";
+		 $('#alreadyLogin').delay(1500).fadeOut('slow');
+	}
+	
 })
 
 function UserProfile() {
@@ -13,23 +31,13 @@ function UserProfile() {
 	$("#accountModal").modal();
 }
 
-
 function login_success(data){
 	
-	
-	
-	
-	//Local storage
-	alert(data.type);
 	localStorage.setItem("account", JSON.stringify(data));
 	
-	
-	
-	//Hiện thẻ li, tên người dùng
-    document.getElementById('userfullname').style.display = "block";
-    //Set tên user 
-    document.getElementById('profile').text = data.fullname;
-    //Ẩn cái popup đăng nhập
+	document.getElementById('profile').text = JSON.parse(localStorage.getItem("account")).fullname;
+	document.getElementById('userfullname').style.display = "block";
+	 
     $("#loginmodal").modal('toggle');
     
     //Hiện thông Thông báo success
@@ -38,14 +46,9 @@ function login_success(data){
 }
 
 function register_success(data){
-//	//Set session 
-////	var session=var data = '@Session["UserName"]';
-//	//Hiện thẻ li, tên người dùng
-//    document.getElementById('userfullname').style.display = "block";
-//    //Set tên user 
-//    document.getElementById('profile').text = data.fullname;
-    //Ẩn cái popup đăng nhập
- //   $("#loginmodal").modal('toggle');
+	
+	 document.getElementById('profile').text = JSON.parse(localStorage.getItem("account")).fullname;
+	 document.getElementById('userfullname').style.display = "block";
     
     //Hiện thông Thông báo success
     document.getElementById('successMessage_register').style.display = "block";
@@ -56,8 +59,8 @@ function register_success(data){
 function login_fail(){
 	document.getElementById('errorMessage').style.display = "block";
 }
-$(document).ready(function(){
-	//Login submmit
+
+//Login submmit
 	$("#loginsubmit").submit(function(e) {
 		$.ajax({
 	           type: "POST",
@@ -70,7 +73,6 @@ $(document).ready(function(){
 	        	    }),
 	           success: function(data)
 	           {
-	        	   alert("befffffff"+data.username);
 	        	   login_success(data);
 	           },
 				error : function(){
@@ -103,4 +105,8 @@ $(document).ready(function(){
 	         });
 	
 	});
-})
+
+function Logout(){
+	localStorage.removeItem("account");
+	document.getElementById('userfullname').style.display = "none";
+}

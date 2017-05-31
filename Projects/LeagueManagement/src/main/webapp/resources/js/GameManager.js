@@ -27,6 +27,7 @@ function loadgame(){
 	        success: function(data)
 	        {
 		        	$.each(data, function(i, item) {
+		        		alert(data[0].teamCreate.teamName);
 		        		if(item.status == "open") {
 		        			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
 		        		}
@@ -37,7 +38,7 @@ function loadgame(){
 								+ '<tr><td>'
 								+ item.gameID
 								+ '</td><td>'
-								+ item.teamCreate.teamName
+								+ "abc"
 								+ '</td><td>'
 								+ item.date
 								+ '</td><td>'
@@ -68,9 +69,9 @@ function loadgame(){
 }
 
 function gameinfo_click(object){
-	var object2 = localStorage.getItem("account");
+//	var object2 = localStorage.getItem("account");
 //	;console.log('test account storage: ', JSON.parse(object2));
-	alert( JSON.parse(object2).username);
+//	alert( JSON.parse(object2).username);
 	document.getElementById("game_teamName").value=object.teamCreate.teamName;
 	document.getElementById("game_phone").value=object.teamCreate.leader.account.phoneNumber;
 	document.getElementById("game_totalMatchs").value=object.teamCreate.numberOfMatch;

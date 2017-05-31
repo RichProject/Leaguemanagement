@@ -33,7 +33,7 @@
 			      <li><a href="#" onClick="UserProfile()">My profile</a></li>
 			      <li><a href="#">My Stadium</a></li>
 			      <li><a href="#">My Team</a></li>
-			      <li><a href="#">Log out</a></li>
+			      <li><a href="#" onClick="Logout();">Log out</a></li>
 			    </ul>
 	       	</a>
        	</li>
@@ -48,6 +48,11 @@
 		        <a href="" class="close" data-dismiss="alert">&times;</a>
 		<strong>Success!</strong> Login successfully. Welcome to our
 		services...!
+	</div>
+	<div id="alreadyLogin" class="container alert alert-warning fade in "
+		style="display: none; text-align: center; weight: 50%">
+		        <a href="" class="close" data-dismiss="alert">&times;</a>
+		<strong>Warning!</strong> You already login...!!
 	</div>
 	<div id="successMessage_register"
 		class="container alert alert-success fade in "
