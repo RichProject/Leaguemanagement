@@ -105,7 +105,12 @@ public class HomePageController {
 	
 	
 	
-
+	@RequestMapping(value = "/getPlayerByAccount", method = RequestMethod.POST)
+	public @ResponseBody Player createGame(@RequestBody String username,HttpServletRequest request) {
+		System.out.println("go to here");
+		return  playerservice.getOnePlayerByAcc(username);
+		
+	}
 	
 	
 }

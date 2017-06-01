@@ -110,3 +110,10 @@ function Logout(){
 	localStorage.removeItem("account");
 	document.getElementById('userfullname').style.display = "none";
 }
+
+function login_checklogin(){
+	if(localStorage.getItem("account") == null){
+		return false;
+	}
+	else return true;
+}

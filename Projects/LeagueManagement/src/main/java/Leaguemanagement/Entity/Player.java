@@ -40,7 +40,7 @@ public class Player {
 	
 	private int totalMinutePlayed;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(name = "Players_Teams", joinColumns = @JoinColumn(name = "player_id", referencedColumnName = "account_username"), inverseJoinColumns = @JoinColumn(name = "team_id", referencedColumnName = "teamID"))
 	@JsonIgnore
 	private Set<Team> listTeams = new HashSet<Team>();

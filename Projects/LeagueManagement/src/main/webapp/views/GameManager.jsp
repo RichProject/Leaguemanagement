@@ -3,7 +3,7 @@
 		  	<thead>
 					<tr>
 						<th>
-							<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#game_createGame">Create new game</button>
+							<button type="button" class="btn btn-default btn-lg" data-toggle="modal" onClick="game_check_login();">Create new game</button>
 						</th>
 						<th>
 							<div class="input-group">
@@ -154,7 +154,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal" >&times;</button>
 						<h4 class="modal-title">Create Game</h4>
 					</div>
 					
@@ -175,11 +175,8 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3">Stadium:</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="stadium">
+									<select class="selectpicker form-control" id="choose_stadium">
 										<option>Choose Stadium</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
 									</select>
 								</div>
 							</div>
@@ -187,12 +184,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3">Other Stadium:</label>
 								<div class="col-sm-8">
-									<div class="input-group">
-										<span class="input-group-addon">
-											<input type="checkbox" name="checkbox" id="otherStadium_checkbox">
-										</span>
 										<input type="text" class="form-control" name="otherStadium" id="otherStadium" placeholder="Enter Other Stadium" required disabled>
-									</div>
 								</div>
 							</div>
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import Leaguemanagement.DAO.GameDAO;
+import Leaguemanagement.DAO.Players_TeamsDAO;
 import Leaguemanagement.Entity.Game;
 import Leaguemanagement.Entity.Player;
 
@@ -19,6 +20,9 @@ public class gameService {
 	
 	@Autowired
 	private GameDAO gameDao;
+	
+	@Autowired
+	private Players_TeamsDAO players_teamDao;
 	
 
 	public List<Game> getAll(){
@@ -41,11 +45,8 @@ public class gameService {
 		return listgame;
 	}
 	
-	public static void test(List<Game> listGame){
-		System.out.println("test entity");
-		for(Player b: listGame.get(0).getTeamCreate().getListPlayers()){
-			System.out.println(b.getUsername());
-		}
+	public List<String> getListTeam(String username){
+		return players_teamDao.listTeam(username);
 		
 	}
 }

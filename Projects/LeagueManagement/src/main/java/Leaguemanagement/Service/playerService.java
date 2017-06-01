@@ -23,4 +23,9 @@ public class playerService {
 		listPlayer= playerDao.findAll();
 		return listPlayer;
 	}
+	
+	public Player getOnePlayerByAcc(String username){
+		Player player = playerDao.findPlayer(username);
+		return player;
+	}
 }

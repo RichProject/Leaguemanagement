@@ -1,21 +1,6 @@
 /**
  * 
  */
-$(document).ready(function(){
-//	$('#otherStadium_checkbox').on('change', function() { 
-//	    // From the other examples
-//		alert("changed");
-//	    if (!this.checked) {
-//	        var sure = confirm("Are you sure?");
-//	        this.checked = !sure;
-//	        $('#textbox1').val(sure.toString());
-//	    }
-//	});
-	if($('.otherStadium_checkbox').is(':checked')){
-		alert("checkedddddd");
-	}
-//	$('.otherStadium_checkbox').prop('checked', true);
-});
 function loadgame(){
 	//Load list game from database
 	$(document).ready(function(){
@@ -27,7 +12,6 @@ function loadgame(){
 	        success: function(data)
 	        {
 		        	$.each(data, function(i, item) {
-		        		alert(data[0].teamCreate.teamName);
 		        		if(item.status == "open") {
 		        			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
 		        		}
@@ -38,7 +22,7 @@ function loadgame(){
 								+ '<tr><td>'
 								+ item.gameID
 								+ '</td><td>'
-								+ "abc"
+								+ item.teamCreate.teamName
 								+ '</td><td>'
 								+ item.date
 								+ '</td><td>'
@@ -64,6 +48,43 @@ function loadgame(){
 				}
 	      });
 		
+		
+		//Load stadium
+		$.ajax({
+	        type: "POST",
+	        url: "stadium",
+	        contentType : "application/json;charset=UTF-8",
+	        dataType : "json",
+	        success: function(data) 
+	        {
+	        	
+	        		$('#choose_stadium').empty();
+	        		$.each(data, function(i, item) {
+	    				$('#choose_stadium').append($('<option>', {
+	    					value : item.stadiumID,
+	    					text : item.stadiumName
+	    				}));
+	    			});
+	        		$('#choose_stadium').append($('<option>', {
+	    				value : "other",
+	    				text : "Other Stadium..."
+	    			}));
+	        },
+				error : function(){
+					alert("Load stadium failed ...! ");
+				}
+	      });
+		
+		$("#choose_stadium").on("change", function() {
+			if ($("#choose_stadium").find(":selected").val() == "other") {
+//				$("#otherStadium").disabled=false;
+				document.getElementById("otherStadium").disabled = false;
+			}
+			else{
+				document.getElementById("otherStadium").disabled = true;
+			}
+		});
+
 		
 	});
 }
@@ -114,17 +135,47 @@ function filterTeamName() {
 	    }       
 	  }
 	}
-//$(document).ready(function(){
-//	
-//	if($('#otherStadium_checkbox').attr('checked')){
-//		alert("checkbox checked");
-//		$(".stadium").prop('disabled', 'disabled');
-//		$(".otherStadium").prop('enable', 'enable');
-//	}
-//	else{
-//		alert("checkbox unchecked");
-//		$(".stadium").prop('enable', 'enable');
-//		$(".otherStadium").prop('disabled', 'disabled');
-//	}
-//});
 
+function game_check_login(){
+	if(login_checklogin() == false){
+		$("#loginmodal").modal();
+	}
+	else {
+		loadTeamByAccount();
+		$("#game_createGame").modal();
+	}
+}
+
+
+function loadTeamByAccount(){
+	var username = JSON.parse(localStorage.getItem("account")).username;
+	$.ajax({
+        type: "POST",
+        url: "getPlayerByAccount",
+        contentType : "application/json;charset=UTF-8",
+        dataType : "json",
+        data : username,
+        success: function(data) 
+        {
+        		$('#game_teamName').empty();
+        		$.each(data.listTeams, function(i, item) {
+    				$('#game_teamName').append($('<option>', {
+    					value : item.teamID,
+    					text : item.teamName
+    				}));
+    			});
+  
+        },
+			error : function(){
+				alert("Load player-team failed ...! ");
+			}
+      });
+	
+//	$('#game_teamName').empty();
+//	$.each(data, function(i, item) {
+//		$('#game_teamName').append($('<option>', {
+//			value : item.stadiumID,
+//			text : item.stadiumName
+//		}));
+//	});
+}

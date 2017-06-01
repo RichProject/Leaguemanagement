@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -30,7 +32,8 @@ public class Team {
 	
 	private String address;
 	
-	@ManyToMany(mappedBy = "listTeams",fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy = "listTeams",fetch=FetchType.LAZY)
+	@JsonIgnore
 	private Set<Player> listPlayers = new HashSet<Player>();
 	
 	public Team() {
