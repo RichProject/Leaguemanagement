@@ -98,3 +98,101 @@ function filterStadiumName() {
 	    }       
 	  }
 	}
+
+
+function createStadium() {
+	$("#stadium_createStadium").modal();
+	
+}
+			
+
+
+function stadium_submit(){
+	
+	
+	
+	var stadium = {
+			ownerID				: JSON.parse(localStorage.getItem("account")).username,
+			stadiumName			: $("#createstadium_name").val(),
+			address				: $("#createstadium_address").val(),
+			district 			: $("#createstadium_district").val(),
+			ward 				: $("#createstadium_ward").val(),
+			fiveGround 			: $("#createstadium_ground5").val(),
+			priceFiveGround		: $("#createstadium_ground5_prize").val(),
+			sevenGround 		: $("#createstadium_ground7").val(),
+			priceSevenGround 	: $("#createstadium_ground7_prize").val(),
+			elevenGround 		: $("#createstadium_ground11").val(),
+			priceElevenGround 	: $("#createstadium_ground11_prize").val()
+		}
+	if (	($("#createstadium_name").val() == "")
+		||	($("#createstadium_address").val() == "")
+		||	($("#createstadium_district").val() == "")
+		||	($("#createstadium_ward").val() == "")) {
+		
+		document.getElementById('createstadium_errorMessage').style.display = "block";
+		$('#createstadium_errorMessage').delay(1500).fadeOut('slow');
+	}
+	else{
+		$.ajax({
+	        type: "POST",
+	        url: "createstadium",
+	        contentType : "application/json;charset=UTF-8",
+	        dataType : "json",
+	        data : JSON.stringify(stadium),
+	        success: function(item) 
+	        {
+	        	if(item.status == "available") {
+    			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
+    		}
+    		if(item.status == "full"){
+    			var icon = '<i class="glyphicon glyphicon-remove"></i>';
+    		}
+	        	var b= $('#listStadium').html()
+				+ '<tr><td>'
+				+ item.stadiumID
+				+ '</td><td>'
+				+ item.stadiumName
+				+ '</td><td>'
+				+ item.address
+				+ '</td><td>'
+				+ item.district
+				+ '</td><td>'
+				+ item.ward
+				+ '</td><td>'
+				+ icon
+				+ '</td><td>'
+				+ item.ownerName.phoneNumber
+				+ '</td><td>'
+				+ item.ownerName.fullname
+				+ '</td><td>'
+				+ getStar(item.pointReview)
+				+ '</td><td><i class="stadiuminfo glyphicon glyphicon-info-sign"></i></td></tr>';
+	        	$('#listStadium').html(b);
+	        	$("#stadium_createStadium").modal('toggle');
+	        	document.getElementById('createStadium_success').style.display = "block";
+				$('#createStadium_success').delay(1500).fadeOut('slow');
+	        	
+	        },
+				error : function(){
+					alert("create stadium failed ...! ");
+				}
+	      });
+}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -30,10 +30,8 @@
 			<p>We make this project for the subject at University. Our team
 				have 5 members, these are :</p>
 			<p>1. Dang Thanh Duy</p>
-			<p>2. huynh Phuoc An</p>
+			<p>2. Huynh Phuoc An</p>
 			<p>3. Phan Nhat Dang</p>
-			<p>4. Nguyen Thanh Dat</p>
-			<p>5. Le Tan Dat</p>
 		</div>
 	</div>
 </div>

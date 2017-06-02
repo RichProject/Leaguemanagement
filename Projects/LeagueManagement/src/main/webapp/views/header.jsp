@@ -73,6 +73,13 @@
 		        <a href="" class="close" data-dismiss="alert" >&times;</a>
 		<strong>Success!</strong> Game is created...!!
 	</div>
+	<div id="createStadium_success"
+		class="container alert alert-success fade in "
+		style="display: none; text-align: center; weight: 50%">
+		        <a href="" class="close" data-dismiss="alert" >&times;</a>
+		<strong>Success!</strong> Stadium is created...!!
+	</div>
+	
 </div>
 <jsp:include page="/views/Login_popup.jsp"></jsp:include>	
 <jsp:include page="/views/UserProfile_popup.jsp"></jsp:include>	

@@ -15,6 +15,9 @@ public class Players_Teams {
 	@Column(name = "player_id")
 	private String player_id;
 	
+	@Column(name = "player_fullname")
+	private String player_fullname;
+	
 	@Column(name = "team_id")
 	private String team_id;
 	
@@ -27,6 +30,16 @@ public class Players_Teams {
 	}
 
 	
+	public String getPlayer_fullname() {
+		return player_fullname;
+	}
+
+
+	public void setPlayer_fullname(String player_fullname) {
+		this.player_fullname = player_fullname;
+	}
+
+
 	public String getID() {
 		return ID;
 	}

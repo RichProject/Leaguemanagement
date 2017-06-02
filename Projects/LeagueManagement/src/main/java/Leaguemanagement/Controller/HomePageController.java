@@ -24,13 +24,17 @@ import org.springframework.web.servlet.ModelAndView;
 import Leaguemanagement.Entity.Account;
 import Leaguemanagement.Entity.Game;
 import Leaguemanagement.Entity.Player;
+import Leaguemanagement.Entity.Players_Teams;
 import Leaguemanagement.Entity.Stadium;
+import Leaguemanagement.Entity.Team;
 import Leaguemanagement.Modal.ModalGame;
+import Leaguemanagement.Modal.StadiumModal;
 import Leaguemanagement.Modal.accountModal;
 import Leaguemanagement.Service.accountService;
 import Leaguemanagement.Service.gameService;
 import Leaguemanagement.Service.playerService;
 import Leaguemanagement.Service.stadiumService;
+import Leaguemanagement.Service.teamService;
 
 
 
@@ -49,6 +53,9 @@ public class HomePageController {
 	
 	@Autowired
 	private stadiumService stadiumservice;
+	
+	@Autowired
+	private teamService teamservice;
 
 	static final Logger log = Logger.getLogger(HomePageController.class.getName());
 	
@@ -97,16 +104,15 @@ public class HomePageController {
 		
 	}
 	
-//	@RequestMapping(value = "/createStadium", method = RequestMethod.POST)
-//	public @ResponseBody boolean createStadium(@RequestBody Stadium stadium,HttpServletRequest request) {
-//		
-//		return  stadiumservice.addStadium(stadium);
-//		
-//	}
+	@RequestMapping(value = "/getPlayerByTeam", method = RequestMethod.POST)
+	public @ResponseBody List<Players_Teams> createStadium(@RequestBody String playerID,HttpServletRequest request) {
+		return  teamservice.getPlayerByTeamID(playerID);
+		
+	}
 	
 	
 	
-	@RequestMapping(value = "/getPlayerByAccount", method = RequestMethod.POST)
+	@RequestMapping(value = "/getteambyAccount", method = RequestMethod.POST)
 	public @ResponseBody List<String> createGame_getplayer(@RequestBody String username,HttpServletRequest request) {
 		return  gameservice.getListTeam(username);
 		
@@ -121,12 +127,20 @@ public class HomePageController {
 		
 	}
 	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public @ResponseBody Account login( @RequestBody accountModal accountmodal,HttpServletRequest request) {
-//		//accountservice.login(accountmodal);
-//	//	HttpSession session = request.getSession();
-//		return accountservice.login(accountmodal);
-//		
-//	}
+	@RequestMapping(value = "/team", method = RequestMethod.POST)
+	public @ResponseBody List<Team> loadTeam() {
+		
+		return teamservice.getAll();
+		
+	}
 	
+	@RequestMapping(value = "/createstadium", method = RequestMethod.POST)
+	public @ResponseBody Stadium loadTeam(@RequestBody StadiumModal stadiummodal,HttpServletRequest request){
+		
+		System.out.println(stadiummodal.getStadiumName());
+		Stadium stadium = stadiumservice.addStadium(stadiummodal);
+		
+		return stadium;
+		
+	}
 }

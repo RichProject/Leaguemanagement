@@ -74,6 +74,7 @@ function team(){
 		dataType: 'text',
 		success: function(response){
 			$('.content').html(response);
+			loadTeam();
 		},
 		error: function(response){
 			alert("error");

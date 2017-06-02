@@ -40,6 +40,8 @@
  <script type="text/javascript" src="${player}"></script>
   <spring:url value="/resources/js/StadiumManager.js" var="stadium" />
  <script type="text/javascript" src="${stadium}"></script>
+  <spring:url value="/resources/js/TeamManager.js" var="team" />
+ <script type="text/javascript" src="${team}"></script>
 
 </body>
 </html>

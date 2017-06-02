@@ -1,3 +1,7 @@
+<style type="text/css">
+   table { page-break-inside:auto }
+   tr    { page-break-inside:avoid; page-break-after:auto }
+</style>
  <div class="container">       
 		  	<table class= "table" >
 		  	<thead>
@@ -22,7 +26,7 @@
 						    <th class="text-center">Position</th>
 						    <th class="text-center">Address</th>
 						    <th class="text-center">Win rate</th>
-						    <th class="text-center">Detail</th>
+						    <th class="text-center">Phone number</th>
 						</tr>
 				</thead>
 				<tbody   id="listPlayers" class="text-center">

@@ -102,24 +102,35 @@ function gameinfo_click(object){
 	document.getElementById("game_pointReview").value=object.teamCreate.point;
 	document.getElementById("game_members").value=object.teamCreate.numberOfMem;
 	$('#game_listplayers').html("");
-	$.each(object.teamCreate.listPlayers, function(i, item) {
-		var b= $('#game_listplayers').html()
-		+ '<tr><td>'
-		+ item.account.username
-		+ '</td><td>'
-		+ item.account.fullname
-		+ '</td><td>'
-		+ item.account.phoneNumber
-		+ '</td><td>'
-		+ '<i class="fa fa-facebook-official"></i>'
-		+ '</td></tr>';
-		$('#game_listplayers').html(b);
+	
+	$.ajax({
+		type : "POST",
+		url : "getPlayerByTeam",
+		contentType : "application/json;charset=UTF-8",
+		dataType : "json",
+		data : object.teamCreate.teamID,
+		success : function(data) {
+			$('#listPlayerinteam').html("");
+			$.each(data, function(i, item) {
+				var c= $('#game_listplayers').html()
+				+ '<tr><td>'
+				+ item.player_id
+				+ '</td><td>'
+				+ item.player_fullname
+				+ '</td></tr>';
+				$('#game_listplayers').html(c);
+			});
+			
+		},
+		error : function(){
+		alert("Load player_team failed ...! ");
+	}
 	});
 	$("#game_teamInfo").modal();
 	
 }
 
-function filterTeamName() {
+function filtergame_TeamName() {
 	  var input, filter, table, tr, td, i;
 	  input = document.getElementById("searchGame");
 	  filter = input.value.toUpperCase();
@@ -152,7 +163,7 @@ function loadTeamByAccount(){
 	var username = JSON.parse(localStorage.getItem("account")).username;
 	$.ajax({
         type: "POST",
-        url: "getPlayerByAccount",
+        url: "getteambyAccount",
         contentType : "application/json;charset=UTF-8",
         dataType : "json",
         data : username,
@@ -189,7 +200,6 @@ function createGame(){
 		}
 		else var stadium =$("#choose_stadium").val()
 		
-		alert(stadium);
 		var teamID = new String($("#choose_game_teamName").val());
 		var gamedate = new String($("#create_game_date").val());
 		var stadiumstring = new String(stadium);

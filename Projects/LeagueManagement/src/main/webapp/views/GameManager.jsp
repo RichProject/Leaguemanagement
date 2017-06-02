@@ -7,7 +7,7 @@
 						</th>
 						<th>
 							<div class="input-group">
-								<input type="text" id="searchGame" class="form-control" onkeyup="filterTeamName()" placeholder="Search...">
+								<input type="text" id="searchGame" class="form-control" onkeyup="filtergame_TeamName()" placeholder="Search...">
 								<span class="input-group-btn">
 								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
 								</span>
@@ -121,8 +121,6 @@
 										<tr >
 											<th class="text-center">Account ID</th>
 											<th class="text-center">Full name</th>
-											<th class="text-center">Phone</th>
-											<th class="text-center">Facebook</th>
 										</tr>
 									</thead>
 									<tbody id="game_listplayers" class="text-center">

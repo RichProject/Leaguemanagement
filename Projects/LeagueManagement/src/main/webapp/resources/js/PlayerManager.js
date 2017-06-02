@@ -22,7 +22,9 @@ function loadplayer(){
 							+ item.account.address
 							+ '</td><td>'
 							+ item.winRate
-							+ '</td><td><i class="playerinfo glyphicon glyphicon-info-sign"></i> <i class="playercontact glyphicon glyphicon-earphone"></i></td></tr>';
+							+ '</td><td>'
+							+ item.account.phoneNumber
+							+ '</td></tr>';
 					$('#listPlayers').html(b);
 
 					$(".playerinfo").bind("click", function() {
