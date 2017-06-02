@@ -25,6 +25,7 @@ import Leaguemanagement.Entity.Account;
 import Leaguemanagement.Entity.Game;
 import Leaguemanagement.Entity.Player;
 import Leaguemanagement.Entity.Stadium;
+import Leaguemanagement.Modal.ModalGame;
 import Leaguemanagement.Modal.accountModal;
 import Leaguemanagement.Service.accountService;
 import Leaguemanagement.Service.gameService;
@@ -96,21 +97,36 @@ public class HomePageController {
 		
 	}
 	
-	@RequestMapping(value = "/createGame", method = RequestMethod.POST)
-	public @ResponseBody boolean createGame(@RequestBody Stadium stadium,HttpServletRequest request) {
-		
-		return  stadiumservice.addStadium(stadium);
-		
-	}
+//	@RequestMapping(value = "/createStadium", method = RequestMethod.POST)
+//	public @ResponseBody boolean createStadium(@RequestBody Stadium stadium,HttpServletRequest request) {
+//		
+//		return  stadiumservice.addStadium(stadium);
+//		
+//	}
 	
 	
 	
 	@RequestMapping(value = "/getPlayerByAccount", method = RequestMethod.POST)
-	public @ResponseBody Player createGame(@RequestBody String username,HttpServletRequest request) {
-		System.out.println("go to here");
-		return  playerservice.getOnePlayerByAcc(username);
+	public @ResponseBody List<String> createGame_getplayer(@RequestBody String username,HttpServletRequest request) {
+		return  gameservice.getListTeam(username);
 		
 	}
 	
+	@RequestMapping(value = "/createGame", method = RequestMethod.POST)
+	public @ResponseBody Game createGame(@RequestBody ModalGame modal,HttpServletRequest request) {
+		System.out.println("create game service");
+		System.out.println(modal.getStadiumid());
+		System.out.println(modal.getTeamid());
+		return  gameservice.addGame(modal);
+		
+	}
+	
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public @ResponseBody Account login( @RequestBody accountModal accountmodal,HttpServletRequest request) {
+//		//accountservice.login(accountmodal);
+//	//	HttpSession session = request.getSession();
+//		return accountservice.login(accountmodal);
+//		
+//	}
 	
 }

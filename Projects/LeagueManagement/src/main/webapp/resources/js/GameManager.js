@@ -59,6 +59,7 @@ function loadgame(){
 	        {
 	        	
 	        		$('#choose_stadium').empty();
+	        		
 	        		$.each(data, function(i, item) {
 	    				$('#choose_stadium').append($('<option>', {
 	    					value : item.stadiumID,
@@ -157,11 +158,11 @@ function loadTeamByAccount(){
         data : username,
         success: function(data) 
         {
-        		$('#game_teamName').empty();
-        		$.each(data.listTeams, function(i, item) {
-    				$('#game_teamName').append($('<option>', {
-    					value : item.teamID,
-    					text : item.teamName
+        		$('#choose_game_teamName').empty();
+        		$.each(data, function(i, item) {
+    				$('#choose_game_teamName').append($('<option>', {
+    					value : item.team_id,
+    					text : item.team_name
     				}));
     			});
   
@@ -171,11 +172,72 @@ function loadTeamByAccount(){
 			}
       });
 	
-//	$('#game_teamName').empty();
-//	$.each(data, function(i, item) {
-//		$('#game_teamName').append($('<option>', {
-//			value : item.stadiumID,
-//			text : item.stadiumName
-//		}));
-//	});
+}
+
+
+function createGame(){
+	var account = JSON.parse(localStorage.getItem("account"));
+	var time = $("#create_game_hour").val() +"h"+ $("#create_game_minute").val()  +" "+ $("#create_game_AP").val();
+
+	if (($("#create_game_hour").val() == "-1") || ($("#create_game_minute").val() == "-1")|| ($("#create_game_date").val() == "")) {
+		document.getElementById('creategame_errorMessage').style.display = "block";
+		$('#creategame_errorMessage').delay(2500).fadeOut('slow');
+	}
+	else{
+		if($("#choose_stadium").val() == "other"){
+			var stadium =$("#otherStadium").val() ;
+		}
+		else var stadium =$("#choose_stadium").val()
+		
+		alert(stadium);
+		var teamID = new String($("#choose_game_teamName").val());
+		var gamedate = new String($("#create_game_date").val());
+		var stadiumstring = new String(stadium);
+		var gameModal = new Array(teamID,stadiumstring,time);
+		$.ajax({
+	        type: "POST",
+	        url: "createGame",
+	        contentType : "application/json;charset=UTF-8",
+	        dataType : "json",
+	        data : JSON.stringify({
+		    	'teamid' : teamID,
+		    	'stadiumid' : stadiumstring,
+		    	'gameDate': gamedate,
+		    	'gametime': time
+		    }),
+		    	
+	        success: function(item) 
+	        {
+	        	if(item.status == "open") {
+	    			var icon = '<i class="glyphicon glyphicon-ok-sign"></i>';
+	    		}
+	    		if(item.status == "close"){
+	    			var icon = '<i class="glyphicon glyphicon-remove"></i>';
+	    		}
+		        		var c= $('#listGames').html()
+						+ '<tr><td>'
+						+ item.gameID
+						+ '</td><td>'
+						+ item.teamCreate.teamName
+						+ '</td><td>'
+						+ item.date
+						+ '</td><td>'
+						+ item.time
+						+ '</td><td>'
+						+ item.stadium.stadiumName
+						+ '</td><td>'
+						+ item.stadium.address
+						+ '</td><td>'
+						+ icon
+						+ '</td><td><i class="gameinfo glyphicon glyphicon-info-sign"></i></td></tr>';
+				$('#listGames').html(c);
+						$("#game_createGame").modal('toggle');
+						document.getElementById('createGame_success').style.display = "block";
+						$('#createGame_success').delay(1500).fadeOut('slow');
+	        },
+				error : function(){
+					alert("Create game failed ...! ");
+				}
+	      });
+	}
 }

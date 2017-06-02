@@ -163,11 +163,8 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3">Team:</label>
 								<div class="col-sm-8">
-									<select class="form-control">
+									<select class="form-control" id="choose_game_teamName">
 										<option>Choose Team</option>
-										<option>Real</option>
-										<option>MC</option>
-										<option>MU</option>
 									</select>
 								</div>
 							</div>
@@ -191,7 +188,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3">Date:</label>
 								<div class="col-sm-8">
-									<input type="date" class="form-control" name="date" id="date" required>
+									<input type="date" class="form-control" name="date" id="create_game_date" required>
 								</div>
 							</div>
 							
@@ -200,46 +197,51 @@
 								<label class="control-label col-sm-3">Time:</label>
 								<div>
 									<div class="col-sm-3">
-										<select class="form-control" >
-											<option>Hour</option>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-											<option>7</option>
-											<option>8</option>
-											<option>9</option>
-											<option>10</option>
-											<option>11</option>
-											<option>12</option>
+										<select class="form-control" id="create_game_hour" >
+											<option value="-1">Minute</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
 										</select>
 									</div>
 									
 									<div class="col-sm-3">
-										<select class="form-control" >
-											<option>Minute</option>
-											<option>00</option>
-											<option>15</option>
-											<option>30</option>
-											<option>45</option>
+										<select class="form-control" id="create_game_minute">
+											<option value="-1">Minute</option>
+											<option value="00">00</option>
+											<option value="15">15</option>
+											<option value="30">30</option>
+											<option value="45">45</option>
 										</select>
 									</div>
 									
-									<div class="col-sm-2">
-										<select class="form-control" >
-											<option>AM</option>
-											<option>PM</option>
+									<div class="col-sm-2" >
+										<select class="form-control" id="create_game_AP">
+											<option value="AM">AM</option>
+											<option value="PM">PM</option>
 										</select>
 									</div>
 								</div>
+							</div>
+							<div id="creategame_errorMessage" class="alert alert-danger fade in"
+										style="display: none; margin-top: 10px">
+										<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Create game
+											failed !</strong> Please choose time or date of game...!
 							</div>
 						</form>
 					</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">Create</button>
+						<button type="button" class="btn btn-primary" onClick="createGame();">Create</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal" onClick="">Back</button>
 					</div>
 				</div>

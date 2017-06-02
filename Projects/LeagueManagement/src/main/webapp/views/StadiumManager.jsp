@@ -61,7 +61,7 @@
 							<div class="panel-body">
 								<form class="form-horizontal">
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-5">
 											<div class="form-group">
 
 											<label class="control-label col-md-8 required">Ground-5:</label>
@@ -72,7 +72,7 @@
 											</div>
 										</div>
 
-										<div class="col-md-6">
+										<div class="col-md-5">
 											<div class="form-group">
 												<label class="control-label col-md-4 required">Price:</label>
 												<div class="col-md-6">
@@ -81,11 +81,17 @@
 												</div>
 											</div>
 										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<label class="control-label required" >(per hour)</label>
+											</div>
+										</div>
+										
 									</div>
 
 
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-5">
 											<div class="form-group">
 
 											<label class="control-label col-md-8 required">Ground-7:</label>
@@ -96,7 +102,7 @@
 											</div>
 										</div>
 
-										<div class="col-md-6">
+										<div class="col-md-5">
 											<div class="form-group">
 												<label class="control-label col-md-4 required">Price:</label>
 												<div class="col-md-6">
@@ -105,11 +111,16 @@
 												</div>
 											</div>
 										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<label class="control-label required" >(per hour)</label>
+											</div>
+										</div>
 									</div>
 
 
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-5">
 											<div class="form-group">
 
 											<label class="control-label col-md-8 required">Ground-11:</label>
@@ -120,13 +131,18 @@
 											</div>
 										</div>
 
-										<div class="col-md-6">
+										<div class="col-md-5">
 											<div class="form-group">
 												<label class="control-label col-md-4 required">Price:</label>
 												<div class="col-md-6">
 													<input id="stadium_ground11_prize" type="text" class="form-control text-center" readonly >
 													<span id="stadium_ground11_prize_error" style="color: red;"></span>
 												</div>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<label class="control-label required" >(per hour)</label>
 											</div>
 										</div>
 									</div>

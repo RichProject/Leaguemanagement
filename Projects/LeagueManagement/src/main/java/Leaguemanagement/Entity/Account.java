@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 @Embeddable
 public class Account {
 	
-	@Id
+	@Id 
 	private String username;
 	
 	private	String password;

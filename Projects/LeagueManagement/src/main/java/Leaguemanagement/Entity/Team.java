@@ -17,7 +17,8 @@ public class Team {
 	
 	private String teamName;
 	
-	@OneToOne (fetch=FetchType.LAZY)
+	@OneToOne (fetch=FetchType.EAGER)
+//	@JsonIgnore
 	private Player leader;
 	
 	private int numberOfMatch;

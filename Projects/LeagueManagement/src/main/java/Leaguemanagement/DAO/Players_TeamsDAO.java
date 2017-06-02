@@ -11,7 +11,7 @@ import Leaguemanagement.Entity.Players_Teams;
 
 public interface Players_TeamsDAO  extends JpaRepository<Players_Teams, Long>{
 
-	@Query("SELECT b FROM Player b WHERE LOWER(b.username) = LOWER(:username)")
+	@Query("SELECT b FROM Players_Teams b WHERE LOWER(b.player_id) = LOWER(:username)")
     public List<String> listTeam(@Param("username") String username);
 	
 }

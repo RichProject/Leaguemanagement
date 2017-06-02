@@ -20,15 +20,16 @@ public class stadiumService {
 	public List<Stadium> getAll(){
 		List<Stadium> listStadium = new ArrayList<Stadium>();
 		listStadium= stadiumDao.findAll();
+		listStadium.remove(0);
 		return listStadium;
 	}
 	
-	public boolean addStadium(Stadium stadium){
-		try{
-		stadiumDao.save(stadium);
-		}catch(Exception e){
-			return false;
-		}
-		return true;
-	}
+//	public boolean addStadium(Stadium stadium){
+//		try{
+//		stadiumDao.save(stadium);
+//		}catch(Exception e){
+//			return false;
+//		}
+//		return true;
+//	}
 }

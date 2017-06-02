@@ -42,7 +42,7 @@ function login_success(data){
     
     //Hiện thông Thông báo success
     document.getElementById('successMessage').style.display = "block";
-    $('#successMessage').delay(2500).fadeOut('slow');
+    $('#successMessage').delay(1500).fadeOut('slow');
 }
 
 function register_success(data){
@@ -52,7 +52,7 @@ function register_success(data){
     
     //Hiện thông Thông báo success
     document.getElementById('successMessage_register').style.display = "block";
-    $('#successMessage_register').delay(2500).fadeOut('slow');
+    $('#successMessage_register').delay(1500).fadeOut('slow');
 }
 
 
@@ -108,6 +108,8 @@ function login_fail(){
 
 function Logout(){
 	localStorage.removeItem("account");
+	 document.getElementById('logout_success').style.display = "block";
+	 $('#logout_success').delay(2500).fadeOut('slow');
 	document.getElementById('userfullname').style.display = "none";
 }
 
