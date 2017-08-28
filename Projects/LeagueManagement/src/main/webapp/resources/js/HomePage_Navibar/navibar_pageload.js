@@ -10,7 +10,7 @@ $(".nav a").on("click", function(){
 
 function index(){
 	$.ajax({
-		url:"/LeagueManagement/views/home.jsp",
+		url:"/LeagueManagement/views/HomePage_Navibar/home.jsp",
 		type: "GET",
 		dataType: 'text',
 		success: function(response){
@@ -24,7 +24,7 @@ function index(){
 // Tab league page-load
 function game(){
 	$.ajax({
-		url:"/LeagueManagement/views/GameManager.jsp",
+		url:"/LeagueManagement/views/Manager/GameManager.jsp",
 		type: "GET",
 		dataType: 'text',
 		success: function(response){
@@ -53,7 +53,7 @@ function game(){
 //Tab league page-load
 function stadium(){
 	$.ajax({
-		url:"/LeagueManagement/views/StadiumManager.jsp",
+		url:"/LeagueManagement/views/Manager/StadiumManager.jsp",
 		type: "GET",
 		dataType: 'text',
 		success: function(response){
@@ -69,7 +69,7 @@ function stadium(){
 //Tab league page-load
 function team(){
 	$.ajax({
-		url:"/LeagueManagement/views/TeamManager.jsp",
+		url:"/LeagueManagement/views/Manager/TeamManager.jsp",
 		type: "GET",
 		dataType: 'text',
 		success: function(response){
@@ -83,7 +83,7 @@ function team(){
 }
 function player(){
 	$.ajax({
-		url:"/LeagueManagement/views/PlayerManager.jsp",
+		url:"/LeagueManagement/views/Manager/PlayerManager.jsp",
 		type: "GET",
 		dataType: 'text',
 		success: function(response){
