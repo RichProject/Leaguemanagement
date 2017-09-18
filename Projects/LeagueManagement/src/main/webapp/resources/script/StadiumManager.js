@@ -1,7 +1,8 @@
 /**
  * 
  */
-function loadstadium(){
+//function loadstadium(){
+//	alert("Load stadium failed ...! ");
 	//Load list game from database
 	$(document).ready(function(){
 		$.ajax({
@@ -20,24 +21,15 @@ function loadstadium(){
 	        		}
 			        		var b= $('#listStadium').html()
 							+ '<tr><td>'
-							+ item.stadiumID
-							+ '</td><td>'
 							+ item.stadiumName
 							+ '</td><td>'
 							+ item.address
 							+ '</td><td>'
 							+ item.district
 							+ '</td><td>'
-							+ item.ward
-							+ '</td><td>'
-							+ icon
-							+ '</td><td>'
-							+ item.ownerName.phoneNumber
-							+ '</td><td>'
-							+ item.ownerName.fullname
-							+ '</td><td>'
 							+ getStar(item.pointReview)
-							+ '</td><td><i class="stadiuminfo glyphicon glyphicon-info-sign"></i></td></tr>';
+							+ '</td><td><i class="stadiuminfo fa fa-info" style="color: teal"></i>'
+							+ '</td><td> <a class="w3-button w3-xlarge w3-circle w3-teal"  style="color: teal;font-size: 12px!important;" ><i class="fa fa-check"></i></a></td></tr>';
 					$('#listStadium').html(b);
 					$(".stadiuminfo").bind("click", function() {
 						var table = document.getElementById('stadiumTable');
@@ -45,15 +37,19 @@ function loadstadium(){
 						stadiuminfo_click(data[rowclicked]);
 					});
 				});
+	        	 var pager = new Pager('results', 3);
+	             pager.init();
+	             pager.showPageNav('pager', 'pageNavPosition');
+	             pager.showPage(1);
 	        },
 				error : function(){
-					alert("Load games failed ...! ");
+					alert("Load stadium failed ...! ");
 				}
 	      });
 		
 		
 	});
-}
+//}
 
 function stadiuminfo_click(object){
 	
@@ -76,7 +72,7 @@ function getStar(pointReview){
 	var starString='';
 	var i = 0;
 		for(i;i<pointReview;i++){
-			starString=starString +'<i class="fa fa-star" aria-hidden="true"></i>';
+			starString=starString +'<i class="fa fa-star" aria-hidden="true" style="color:teal"></i>';
 		}
 		return starString;
 }
@@ -196,3 +192,71 @@ function stadium_submit(){
 	
 	
 	
+//<![CDATA[
+function Pager(tableName, itemsPerPage) {
+    this.tableName = tableName;
+    this.itemsPerPage = itemsPerPage;
+    this.currentPage = 1;
+    this.pages = 0;
+    this.inited = false;
+   
+    this.showRecords = function(from, to) {      
+        var rows = document.getElementById(tableName).rows;
+        // i starts from 1 to skip table header row
+        for (var i = 1; i < rows.length; i++) {
+            if (i < from || i > to)
+                rows[i].style.display = 'none';
+            else
+                rows[i].style.display = '';
+        }
+    }
+   
+    this.showPage = function(pageNumber) {
+          if (! this.inited) {
+                   alert("not inited");
+                   return;
+          }
+        var oldPageAnchor = document.getElementById('pg'+this.currentPage);
+        oldPageAnchor.className = 'pg-normal';
+       
+        this.currentPage = pageNumber;
+        var newPageAnchor = document.getElementById('pg'+this.currentPage);
+        newPageAnchor.className = 'pg-selected';
+       
+        var from = (pageNumber - 1) * itemsPerPage + 1;
+        var to = from + itemsPerPage - 1;
+        this.showRecords(from, to);
+    }  
+   
+    this.prev = function() {
+        if (this.currentPage > 1)
+            this.showPage(this.currentPage - 1);
+    }
+   
+    this.next = function() {
+        if (this.currentPage < this.pages) {
+            this.showPage(this.currentPage + 1);
+        }
+    }                      
+   
+    this.init = function() {
+        var rows = document.getElementById(tableName).rows;
+        var records = (rows.length - 1);
+        this.pages = Math.ceil(records / itemsPerPage);
+        this.inited = true;
+    }
+    this.showPageNav = function(pagerName, positionId) {
+          if (! this.inited) {
+                   alert("not inited");
+                   return;
+          }
+          var element = document.getElementById(positionId);
+         
+          var pagerHtml = '<span onclick="' + pagerName + '.prev();" class="pg-normal"> &#171 Prev </span> | ';
+        for (var page = 1; page <= this.pages; page++)
+            pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');">' + page + '</span> | ';
+        pagerHtml += '<span onclick="'+pagerName+'.next();" class="pg-normal"> Next &#187;</span>';          
+       
+        element.innerHTML = pagerHtml;
+    }
+}

@@ -99,9 +99,8 @@ public class HomePageController {
 	@RequestMapping(value = "/stadium", method = RequestMethod.POST)
 	public @ResponseBody List<Stadium> getallstadium() {
 		List<Stadium> list = stadiumservice.getAll();
-		
 		return list ;
-		
+			
 	}
 	
 	@RequestMapping(value = "/getPlayerByTeam", method = RequestMethod.POST)
